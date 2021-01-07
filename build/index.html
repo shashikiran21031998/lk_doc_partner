@@ -1,0 +1,2778 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Lendingkart Documentation</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-d87a7b22.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-5d581645.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch-44621280.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+    <link href="images/favicon-d4a07a2d.ico" rel="icon" type="image/ico" />
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;,&quot;java&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-6ad8e2f4.svg" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+    <div class="image-logo">
+      <img src="images/lklogo-dbf8d2f8.png" class="logo" alt="" />
+      </div>
+        <div class="lang-selector">
+        
+            
+              <a href="#" data-language-name="shell">shell</a>
+            
+              <a href="#" data-language-name="python">python</a>
+            
+              <a href="#" data-language-name="java">java</a>
+        </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#lead-dedupe-status" class="toc-h2 toc-link" data-title="Lead Dedupe Status">Lead Dedupe Status</a>
+                  </li>
+                  <li>
+                    <a href="#application-creation" class="toc-h2 toc-link" data-title="Application creation">Application creation</a>
+                  </li>
+                  <li>
+                    <a href="#document-upload" class="toc-h2 toc-link" data-title="Document upload">Document upload</a>
+                  </li>
+                  <li>
+                    <a href="#application-status" class="toc-h2 toc-link" data-title="Application status">Application status</a>
+                  </li>
+                  <li>
+                    <a href="#document-status" class="toc-h2 toc-link" data-title="Document Status">Document Status</a>
+                  </li>
+                  <li>
+                    <a href="#terms-sanction" class="toc-h2 toc-link" data-title="Terms Sanction">Terms Sanction</a>
+                  </li>
+                  <li>
+                    <a href="#terms-acceptance" class="toc-h2 toc-link" data-title="Terms acceptance">Terms acceptance</a>
+                  </li>
+                  <li>
+                    <a href="#download-agreement" class="toc-h2 toc-link" data-title="Download agreement">Download agreement</a>
+                  </li>
+                  <li>
+                    <a href="#get-disbursal-data" class="toc-h2 toc-link" data-title="Get disbursal data">Get disbursal data</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#onboarding-process" class="toc-h2 toc-link" data-title="Onboarding Process">Onboarding Process</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#faqs" class="toc-h1 toc-link" data-title="FAQs">FAQs</a>
+          </li>
+          <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#headers" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                  </li>
+                  <li>
+                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
+            <a href="#support" class="toc-h1 toc-link" data-title="Support">Support</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+      <div class="footer">
+      <span>&#169; 2021 Lendingkart Technologies Pvt. Ltd</span>
+      </div>
+        <div class="right-introduction">
+<h2>Getting Started ?</h2>
+<span>Check our <a href="https://www.lendingkart.com/xlr8/" target="_blank">[xlr8]</a> page to know more about our product.</span>
+
+
+<div class="api-key">
+<div class="heading">
+<span>Production url</span>
+</div>
+
+<div class="code">
+https://api.lendingkart.com
+</div>
+
+<p></div></p>
+
+<div class="api-key" id="normal">
+<div class="heading">
+<span>Swagger link</span>
+</div>
+
+<p class="text">Click on this <a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/" target="_blank" >link</a> for swagger page.</p>
+
+<p></div>
+</div></p>
+<h1 id='introduction'>Introduction</h1>
+<p>Welcome to Lendingkart Partner API documentation. This documentation provides access to the end to end
+Lendingkart Partner API suite. Integrate our APIs quickly to enable Lendingkart loan journey in your platforms to
+provide a unique experience to your customers.</p>
+
+<p>Below is a high level representation of Lendingkart Loan journey. Our APIs help you to interact with different
+steps in the loan journey.</p>
+
+<p class="image-p">
+<image src="images/Artboard-307bf7c3.jpg" alt="image1" />
+</p>
+
+<aside class="notice">
+Please refer to the this <a href="https://docs.google.com/spreadsheets/d/1_GxM3sZeuhTE-oKFN0HYKDz4LHMj-k5FD22b80CCf0I/edit?usp=sha
+ring" target="_blank" >link</a> for basic Lendingkart application sourcing guidelines(Negative Industries and
+Negative pin codes mentioned here). We recommend that you source leads based on these criteria to ensure
+lower rejection rates by filtering the leads upfront at your end.
+</aside>
+
+<p><h2 id='lead-dedupe-status'>Lead Dedupe Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;Accept: application/json&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;X-Api-Key: aaaa-bbbb-cccc-dddd&#39;</span>
+ <span class="nt">-d</span> 
+ <span class="s1">&#39;{ \ 
+   &quot;mobile&quot;: &quot;6666698762&quot;, \ 
+   &quot;email&quot;: &quot;Bala.Ganeshtest1%40example.com&quot; \ 
+ }&#39;</span> <span class="s1">&#39;https://lkext.lendingkart.com/v2/partner/leads/lead-exists-status&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/lead-exists-status&quot;</span>
+<span class="n">payload</span><span class="o">=</span><span class="s">&quot;{&quot;</span><span class="n">mobile</span><span class="s">&quot;:&quot;</span><span class="mi">6666698762</span><span class="s">&quot;,&quot;</span><span class="n">email</span><span class="s">&quot;:&quot;</span><span class="n">Bala</span><span class="p">.</span><span class="n">Ganeshtest1</span><span class="o">%</span><span class="mi">40</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="s">&quot;}&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+  <span class="s">&#39;X-Api-Key&#39;</span><span class="p">:</span> <span class="s">&#39;aaaa-bbbb-cccc-dddd&#39;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;application/json&quot;</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> 
+<span class="s">&quot;{&quot;</span><span class="n">mobile</span><span class="s">&quot;:&quot;</span><span class="mi">6666698762</span><span class="s">&quot;,&quot;</span><span class="n">email</span><span class="s">&quot;:&quot;</span><span class="nc">Bala</span><span class="o">.</span><span class="na">Ganeshtest1</span><span class="o">%</span><span class="mi">40</span><span class="n">example</span><span class="o">.</span><span class="na">com</span><span class="s">&quot;}&quot;</span><span class="o">;</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/lead-exists-status&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">&quot;POST&quot;</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Content-Type&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Accept&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;X-Api-Key&quot;</span><span class="o">,</span> <span class="s">&quot;aaaa-bbbb-cccc-dddd&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (if lead exists)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">&quot;applicationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;String&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;leadExists&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Output Response (if lead is unique)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">&quot;applicationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;leadExists&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The API returns whether a lead pushed to Lendingkart would be accepted or rejected by lead dedupe logic
+based on two input parameters (email id and phone number). It checks whether the lead request sent is a
+duplicate of an already existing active lead in the system. If the API returns ‘False’, then please proceed with
+Application Creation API(Documentation below) to submit your application details to Lendingkart. In case the API
+returns ‘True’, then it indicates that Lendingkart will not be able to proceed further with these details at the
+moment as there is already an active lead in the system. The API returns Application ID in case the previous
+lead was pushed from your lead source only.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://lkext.lendingkart.com/admin/lead/v2/partner/leads/lead-exists-status</code></p>
+<h3 id='parameter'>Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Customer’s email address</td>
+<td>String</td>
+<td>true</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>Customer’s mobile number</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table></p>
+
+<aside class="notice">
+There are some rare scenarios in which the Dedupe API will respond that the lead does not exist but then
+lead will be rejected by the Application Creation API.
+</aside>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/checkLeadAlreadyExistingUsingPOST" id="tryIt" target="_blank">Try it!</a></p>
+
+<p><h2 id='application-creation'>Application creation</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;Accept: text/plain&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;X-Api-Key: aaaa-bbbb-cccc-dddd&#39;</span> 
+<span class="nt">-d</span> 
+<span class="s1">&#39;{
+  &quot;firstName&quot;: &quot;Bala&quot;,
+  &quot;lastName&quot;: &quot;Ganesh&quot;,
+  &quot;email&quot;: &quot;Bala.Ganeshtest1@example.com&quot;,
+  &quot;mobile&quot;: &quot;6666698762&quot;,
+  &quot;businessRevenue&quot;: 5000000,
+  &quot;businessAge&quot;: 24,
+  &quot;registeredAs&quot;: &quot;Proprietorship&quot;,
+  &quot;personalDob&quot;: &quot;1990-05-21&quot;,
+  &quot;personalPAN&quot;: &quot;ARTPA1156H&quot;,
+  &quot;gender&quot;: &quot;MALE&quot;,
+  &quot;cibilConsentForLK&quot;: true,
+  &quot;mobileNoVerified&quot;: true,
+  &quot;personalAddress&quot;: {
+    &quot;ownership&quot;: &quot;string&quot;,
+    &quot;address&quot;: &quot;4/5, Race Course Road&quot;,
+    &quot;city&quot;: &quot;Coimbatore&quot;,
+    &quot;state&quot;: &quot;TamilNadu&quot;,
+    &quot;pincode&quot;: &quot;641041&quot;
+  },
+  &quot;businessRunBy&quot;: &quot;Self&quot;,
+  &quot;loanAmount&quot;: 100000,
+  &quot;typeOfLoan&quot;: &quot;INSTANT&quot;,
+  &quot;companyName&quot;: &quot;Sakthi Enterprises&quot;,
+  &quot;businessAddress&quot;: {
+    &quot;ownership&quot;: &quot;string&quot;,
+    &quot;address&quot;: &quot;4/5, Race Course Road&quot;,
+    &quot;city&quot;: &quot;Coimbatore&quot;,
+    &quot;state&quot;: &quot;TamilNadu&quot;,
+    &quot;pincode&quot;: &quot;641041&quot;
+  },
+  &quot;loanNeedTime&quot;: &quot;After 2 weeks&quot;,
+  &quot;uniqueId&quot;: &quot;string&quot;,
+  &quot;otherFields&quot;: {}
+}&#39;</span>
+<span class="s1">&#39;https://lkext.lendingkart.com/v2/partner/leads/create-application&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;application/json&quot;</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">&quot;{{
+  &quot;</span><span class="n">firstName</span><span class="s">&quot;: &quot;</span><span class="nc">Bala</span><span class="s">&quot;,
+  &quot;</span><span class="n">lastName</span><span class="s">&quot;: &quot;</span><span class="nc">Ganesh</span><span class="s">&quot;,
+  &quot;</span><span class="n">email</span><span class="s">&quot;: &quot;</span><span class="nc">Bala</span><span class="o">.</span><span class="na">Ganeshtest1</span><span class="nd">@example</span><span class="o">.</span><span class="na">com</span><span class="s">&quot;,
+  &quot;</span><span class="n">mobile</span><span class="s">&quot;: &quot;</span><span class="mi">6666698762</span><span class="s">&quot;,
+  &quot;</span><span class="n">businessRevenue</span><span class="s">&quot;: 5000000,
+  &quot;</span><span class="n">businessAge</span><span class="s">&quot;: 24,
+  &quot;</span><span class="n">registeredAs</span><span class="s">&quot;: &quot;</span><span class="nc">Proprietorship</span><span class="s">&quot;,
+  &quot;</span><span class="n">personalDob</span><span class="s">&quot;: &quot;</span><span class="mi">1990</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="mi">21</span><span class="s">&quot;,
+  &quot;</span><span class="n">personalPAN</span><span class="s">&quot;: &quot;</span><span class="no">ARTPA1156H</span><span class="s">&quot;,
+  &quot;</span><span class="n">gender</span><span class="s">&quot;: &quot;</span><span class="no">MALE</span><span class="s">&quot;,
+  &quot;</span><span class="n">cibilConsentForLK</span><span class="s">&quot;: true,
+  &quot;</span><span class="n">mobileNoVerified</span><span class="s">&quot;: true,
+  &quot;</span><span class="n">personalAddress</span><span class="s">&quot;: {
+    &quot;</span><span class="n">ownership</span><span class="s">&quot;: &quot;</span><span class="n">string</span><span class="s">&quot;,
+    &quot;</span><span class="n">address</span><span class="s">&quot;: &quot;</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="o">,</span> <span class="nc">Race</span> <span class="nc">Course</span> <span class="nc">Road</span><span class="s">&quot;,
+    &quot;</span><span class="n">city</span><span class="s">&quot;: &quot;</span><span class="nc">Coimbatore</span><span class="s">&quot;,
+    &quot;</span><span class="n">state</span><span class="s">&quot;: &quot;</span><span class="nc">TamilNadu</span><span class="s">&quot;,
+    &quot;</span><span class="n">pincode</span><span class="s">&quot;: &quot;</span><span class="mi">641041</span><span class="s">&quot;
+  },
+  &quot;</span><span class="n">businessRunBy</span><span class="s">&quot;: &quot;</span><span class="nc">Self</span><span class="s">&quot;,
+  &quot;</span><span class="n">loanAmount</span><span class="s">&quot;: 100000,
+  &quot;</span><span class="n">typeOfLoan</span><span class="s">&quot;: &quot;</span><span class="no">INSTANT</span><span class="s">&quot;,
+  &quot;</span><span class="n">companyName</span><span class="s">&quot;: &quot;</span><span class="nc">Sakthi</span> <span class="nc">Enterprises</span><span class="s">&quot;,
+  &quot;</span><span class="n">businessAddress</span><span class="s">&quot;: {
+    &quot;</span><span class="n">ownership</span><span class="s">&quot;: &quot;</span><span class="n">string</span><span class="s">&quot;,
+    &quot;</span><span class="n">address</span><span class="s">&quot;: &quot;</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="o">,</span> <span class="nc">Race</span> <span class="nc">Course</span> <span class="nc">Road</span><span class="s">&quot;,
+    &quot;</span><span class="n">city</span><span class="s">&quot;: &quot;</span><span class="nc">Coimbatore</span><span class="s">&quot;,
+    &quot;</span><span class="n">state</span><span class="s">&quot;: &quot;</span><span class="nc">TamilNadu</span><span class="s">&quot;,
+    &quot;</span><span class="n">pincode</span><span class="s">&quot;: &quot;</span><span class="mi">641041</span><span class="s">&quot;
+  },
+  &quot;</span><span class="n">loanNeedTime</span><span class="s">&quot;: &quot;</span><span class="nc">After</span> <span class="mi">2</span> <span class="n">weeks</span><span class="s">&quot;,
+  &quot;</span><span class="n">uniqueId</span><span class="s">&quot;: &quot;</span><span class="n">string</span><span class="s">&quot;,
+  &quot;</span><span class="n">otherFields</span><span class="s">&quot;: {}
+}}&quot;</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/create-application&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">&quot;POST&quot;</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Content-Type&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Accept&quot;</span><span class="o">,</span> <span class="s">&quot;text/plain&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;X-Api-Key&quot;</span><span class="o">,</span> <span class="s">&quot;aaaa-bbbb-cccc-dddd&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/create-application&quot;</span>
+<span class="n">payload</span><span class="o">=</span><span class="s">&quot;{
+  &quot;</span><span class="n">firstName</span><span class="s">&quot;: &quot;</span><span class="n">Bala</span><span class="s">&quot;,
+  &quot;</span><span class="n">lastName</span><span class="s">&quot;: &quot;</span><span class="n">Ganesh</span><span class="s">&quot;,
+  &quot;</span><span class="n">email</span><span class="s">&quot;: &quot;</span><span class="n">Bala</span><span class="p">.</span><span class="n">Ganeshtest1</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="s">&quot;,
+  &quot;</span><span class="n">mobile</span><span class="s">&quot;: &quot;</span><span class="mi">6666698762</span><span class="s">&quot;,
+  &quot;</span><span class="n">businessRevenue</span><span class="s">&quot;: 5000000,
+  &quot;</span><span class="n">businessAge</span><span class="s">&quot;: 24,
+  &quot;</span><span class="n">registeredAs</span><span class="s">&quot;: &quot;</span><span class="n">Proprietorship</span><span class="s">&quot;,
+  &quot;</span><span class="n">personalDob</span><span class="s">&quot;: &quot;</span><span class="mi">1990</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="s">&quot;,
+  &quot;</span><span class="n">personalPAN</span><span class="s">&quot;: &quot;</span><span class="n">ARTPA1156H</span><span class="s">&quot;,
+  &quot;</span><span class="n">gender</span><span class="s">&quot;: &quot;</span><span class="n">MALE</span><span class="s">&quot;,
+  &quot;</span><span class="n">cibilConsentForLK</span><span class="s">&quot;: true,
+  &quot;</span><span class="n">mobileNoVerified</span><span class="s">&quot;: true,
+  &quot;</span><span class="n">personalAddress</span><span class="s">&quot;: {
+    &quot;</span><span class="n">ownership</span><span class="s">&quot;: &quot;</span><span class="n">string</span><span class="s">&quot;,
+    &quot;</span><span class="n">address</span><span class="s">&quot;: &quot;</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">Race</span> <span class="n">Course</span> <span class="n">Road</span><span class="s">&quot;,
+    &quot;</span><span class="n">city</span><span class="s">&quot;: &quot;</span><span class="n">Coimbatore</span><span class="s">&quot;,
+    &quot;</span><span class="n">state</span><span class="s">&quot;: &quot;</span><span class="n">TamilNadu</span><span class="s">&quot;,
+    &quot;</span><span class="n">pincode</span><span class="s">&quot;: &quot;</span><span class="mi">641041</span><span class="s">&quot;
+  },
+  &quot;</span><span class="n">businessRunBy</span><span class="s">&quot;: &quot;</span><span class="n">Self</span><span class="s">&quot;,
+  &quot;</span><span class="n">loanAmount</span><span class="s">&quot;: 100000,
+  &quot;</span><span class="n">typeOfLoan</span><span class="s">&quot;: &quot;</span><span class="n">INSTANT</span><span class="s">&quot;,
+  &quot;</span><span class="n">companyName</span><span class="s">&quot;: &quot;</span><span class="n">Sakthi</span> <span class="n">Enterprises</span><span class="s">&quot;,
+  &quot;</span><span class="n">businessAddress</span><span class="s">&quot;: {
+    &quot;</span><span class="n">ownership</span><span class="s">&quot;: &quot;</span><span class="n">string</span><span class="s">&quot;,
+    &quot;</span><span class="n">address</span><span class="s">&quot;: &quot;</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">Race</span> <span class="n">Course</span> <span class="n">Road</span><span class="s">&quot;,
+    &quot;</span><span class="n">city</span><span class="s">&quot;: &quot;</span><span class="n">Coimbatore</span><span class="s">&quot;,
+    &quot;</span><span class="n">state</span><span class="s">&quot;: &quot;</span><span class="n">TamilNadu</span><span class="s">&quot;,
+    &quot;</span><span class="n">pincode</span><span class="s">&quot;: &quot;</span><span class="mi">641041</span><span class="s">&quot;
+  },
+  &quot;</span><span class="n">loanNeedTime</span><span class="s">&quot;: &quot;</span><span class="n">After</span> <span class="mi">2</span> <span class="n">weeks</span><span class="s">&quot;,
+  &quot;</span><span class="n">uniqueId</span><span class="s">&quot;: &quot;</span><span class="n">string</span><span class="s">&quot;,
+  &quot;</span><span class="n">otherFields</span><span class="s">&quot;: {}
+}&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+<span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;text/plain&#39;</span><span class="p">,</span>
+<span class="s">&#39;X-Api-Key&#39;</span><span class="p">:</span> <span class="s">&#39;aaaa-bbbb-cccc-dddd&#39;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (Response Code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="mi">1</span><span class="err">.</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">&quot;leadId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;32433&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;applicationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LAI-109966675&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ELIGIBLE&quot;</span><span class="p">,</span><span class="w">
+   </span><span class="err">“uniqueid”:</span><span class="w"> </span><span class="err">“</span><span class="mi">34567654</span><span class="err">”</span><span class="p">,</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="mi">2</span><span class="err">.</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">&quot;leadId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;32431&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;applicationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LAI-109966674&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INELIGIBLE&quot;</span><span class="p">,</span><span class="w">
+   </span><span class="err">“uniqueid”:</span><span class="w"> </span><span class="err">“</span><span class="mi">34567654</span><span class="err">”</span><span class="p">,</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="mi">3</span><span class="err">.</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">&quot;leadId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;32432&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;applicationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Application or lead already exist with us&quot;</span><span class="p">,</span><span class="w">
+   </span><span class="err">“uniqueid”:</span><span class="w"> </span><span class="err">“</span><span class="mi">34567654</span><span class="err">”</span><span class="p">,</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="mi">4</span><span class="err">.</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">&quot;leadId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;103600&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;applicationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;errorMessageList&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">&quot;Unable to create application for this leadId &quot;</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+   </span><span class="err">“uniqueid”:</span><span class="w"> </span><span class="err">“</span><span class="mi">34567654</span><span class="err">”</span><span class="p">,</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The API creates an application in the Lendingkart system on success. API requires fields highlighted in ​ Red
+mandatorily for application creation. The rest of the application fields are required for application completion to
+move further in our loan journey - Please share the maximum available customer data available at your end
+overlapping with our input fields to fast track loan application process without any manual intervention with
+customers. If you don&#39;t have any of the non mandatory fields - it is ok to not pass them in the request string or
+just pass as null (null as value not “null” as string). Please refer to this <a href="https://docs.google.com/spreadsheets/d/1Mi-bGUVks1cj9ZyEPSPQ3UgNVcVGcUFD09LAN5mCvlM/edit?usp=s
+haring">link</a> for understanding the list of
+fields we require for application completion.</p></p>
+
+<p><strong>Upfront Rejection Criterion</strong></br>
+1. <strong>Business Age</strong> - We have a minimum cap for ​ <strong>vintage / age of business​</strong> AS ​ <strong>3 months</strong>​ . Requests having this
+field’s value less than or equal to 3 Months would be rejected (lead ID and application ID both will be created)</br>
+2. <strong>Business Revenue</strong> - We have a minimum cap for ​ <strong>revenue / Last 12 months sales​</strong> AS ​ <strong>3 lakhs​</strong> . Requests
+having this field’s value less than equal to 3 lakhs would be rejected (lead ID and application ID both will be
+created)</br>
+3. <strong>Duplicacy</strong> - If lead sent in the request is a duplicate of an already existing lead in the system then it checks if
+the old lead is still active. If this is the case then the lead which is sent in the request is rejected (new lead would
+be created, application won&#39;t be created). We recommend that you use our Lead Dedupe API first before
+triggering Application Creation API to avoid lead rejections.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://lkext.lendingkart.com/v2/partner/leads/create-application</code></p>
+<h3 id='parameter'>Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+<th>Regex</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstName</td>
+<td>Customer’s first name</td>
+<td>String</td>
+<td>true</td>
+<td>^[\p{L} .&#39;-]+$</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>Customer’s lastName name</td>
+<td>String</td>
+<td>true</td>
+<td>^[\p{L} .&#39;-]+$</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>Customer’s mobile number</td>
+<td>String</td>
+<td>true</td>
+<td>^[6-9]{1}[0-9]{9}$</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Customer’s email address</td>
+<td>String</td>
+<td>true</td>
+<td>^[_A-Za-z0-9-​ \​ +]+(​ \​ .[_A-Za-z0-9-]+)<em>@[A-Za-z0-9-]+(​ \​ .[A-Za-z0-9]+)</em>(​ \​ .[A-Za-z]{2,})$</td>
+</tr>
+<tr>
+<td>companyEmail</td>
+<td>Customer’s company email address</td>
+<td>String</td>
+<td>true</td>
+<td>^[_A-Za-z0-9-​ \​ +]+(​ \​ .[_A-Za-z0-9-]+)<em>@[A-Za-z0-9-]+(​ \​ .[A-Za-z0-9]+)</em>(​ \​ .[A-Za-z]{2,})$</td>
+</tr>
+<tr>
+<td>companyGstNumber</td>
+<td>Customer’s company GST number(accepts null value)</td>
+<td>String</td>
+<td>false</td>
+<td>^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[A-Z0-9]{1}[A-Z]{1}[A-Z0-9]{1}$</td>
+</tr>
+<tr>
+<td>companyPAN</td>
+<td>Customer’s companys pan(accepts null value)</td>
+<td>String</td>
+<td>false</td>
+<td>[A-Z]{3}[C,H,A,B,G,J,L,E,F,T]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}</td>
+</tr>
+<tr>
+<td>personalPAN</td>
+<td>Customer’s personal pan(accepts null value)</td>
+<td>String</td>
+<td>false</td>
+<td>[A-Z]{3}[P]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}</td>
+</tr>
+<tr>
+<td>personalAadhaar</td>
+<td>Customer’s aadhar number(accepts null value)</td>
+<td>String</td>
+<td>false</td>
+<td>[0-9]{12}</td>
+</tr>
+<tr>
+<td>personalDob</td>
+<td>Customer’s date of birth(accepts null value)</td>
+<td>String</td>
+<td>false</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>companyServiceTaxNumber</td>
+<td>Customer’s companys tax number(accepts null value)</td>
+<td>String</td>
+<td>false</td>
+<td>^[A-Z]{5}[0-9]{4}[A-Z]{1}[S]{1}[D</td>
+</tr>
+</tbody></table>
+<h3 id='other-parameter-enum-values'>Other Parameter (enum values)</h3>
+<details>
+<summary>
+<strong>1. registeredAs</strong><i>(required)</i>
+</summary>
+<ul>
+<li>Proprietorship</l1>
+<li>Partnership</li>
+<li>Pvt. Ltd</l1>
+<li>LLP</li>
+<li>Limited Company</l1>
+<li>One Person Company</li>
+<li>Not Registered</li>
+</ul>
+</details>
+
+<details>
+<summary>
+<strong>2. businessRunBy</strong><i>(required)</i>
+</summary>
+<ul>
+<li>Self</l1>
+<li>Spouse</li>
+<li>Relative</l1>
+<li>Parent</li>
+<li>Others</l1>
+</ul>
+</details>
+
+<details>
+<summary>
+<strong>2. productCategory</strong><i>(required)</i>
+</summary>
+<ul>
+<li>"Advisory services (legal, business, educational, psychological etc.)"</li>
+<li>"Aircel distributor / R-com distributor"</li>
+<li>"Apparel, Readymade garments"</li>
+<li>"Arms and ammunition dealers"</li>
+<li>"Arts, design and other creative services"</li>
+<li>"Automobile accessories / service centre"</li>
+<li>"Automotive parts"</li>
+<li>"BPO/KPO & facility management"</li>
+<li>"Bar / Liquor"</li>
+<li>"CSC, photocopying and other documents and ID (Aadhar, PAN) related services, Kisan seva kendra"</li>
+<li> "Cab Services"</li>
+<li> "Camera, CCTV and related accessories"</li>
+<li> "Cargo and retail transport service"</li>
+<li> "Chain restaurant / verified income"</li>
+<li> "Chemist, Retail health accessories, medicines and supplements"</li>
+<li> "Clinics, hospital,nursing home, lab, gym, pet clinic etc."</li>
+<li> "Computer, Mobile and related accessories"</li>
+<li> "Computer, mobile and camera repairing service"</li>
+<li> "Construction equipment including building, road, sewage etc."</li>
+<li> "Construction material like cement, bricks, sand etc"</li>
+<li> "Corporate services / Corporate bookings"</li>
+<li> "Cotton bales, Textile manufacturing"</li>
+<li> "Countdown Timers, Electronic Scoreboards and Digital Clocks"</li>
+<li> "Courier"</li>
+<li> "Design, Fabrication & Painting Services"</li>
+<li> "Distributor of cooking/commercial Gas"</li>
+<li> "Eco-friendly solutions for industry (solar, greenhouse, biomass, recycling, etc.)"</li>
+<li> "Edible Oil business"</li>
+<li> "Educational Institute (Pre-school, school, college, coaching center, library etc.)"</li>
+<li> "Educational products (books, educational toys, stationeries, e-learning etc.)"</li>
+<li> "Electronic sensors, devices"</li>
+<li> "Entertainment Event"</li>
+<li> "Equipment used in agriculture"</li>
+<li> "Event Management"</li>
+<li> "Fabric (woven and non-woven) & textiles"</li>
+<li> "Facility Management Services"</li>
+<li> "Fibres, threads, buttons and other raw materials supplier to textile industry"</li>
+<li> "Film Producer"</li>
+<li> "Financial service providers (Chit funds/ small finance companies/Stock broking Companies)"</li>
+<li> "Financial service providers (DSA,agents and other intermediators)"</li>
+<li> "Financial service providers (NBFCs/ Other money lending companies)"</li>
+<li> "Fire fighting equipment, safety materials"</li>
+<li> "Footwear, bags, cosmetics and other fashion accessories"</li>
+<li> "Freight forwarding services"</li>
+<li> "Furniture & Fixtures (including on rent)"</li>
+<li> "Grocery/ Kirana store / Departmental Store"</li>
+<li> "Hardware & Fittings (ceramics, tiles, cables, lights etc.)"</li>
+<li> "Hardware provider to telecom industry"</li>
+<li> "Heavy machineries & Robotics"</li>
+<li> "Home & Kitchen Appliances"</li>
+<li> "Home Decor, interior items, kitchen accessories, toys, gift articles"</li>
+<li> "Hotels, resorts and club"</li>
+<li> "Housekeeping products"</li>
+<li> "Housekeeping, security & industrial labour supply"</li>
+<li> "Imitation jewellery"</li>
+<li> "Industrial and customized software, applications and ITES"</li>
+<li> "Installation and repair services for telecom products"</li>
+<li> "Intelligence Agencies/ Private Security Firms"</li>
+<li> "Interior Designers"</li>
+<li> "Jewellery, precious metals and stones"</li>
+<li> "Material handling service provider"</li>
+<li> "Medical, non-medical & wellness equipments"</li>
+<li> "Mining & Mining Products"</li>
+<li> "Mobile and related accessories"</li>
+<li> "Mobile recharge, Telecom, DTH, data service provider (telephone, internet,broadband, ISP, leased line etc.)"</li>
+<li> "Musical Instruments, bulbs, tubelights"</li>
+<li> "Networking, storage, data management and other support services"</li>
+<li> "Non-metal products like wood, paper, plastic, glass, etc"</li>
+<li> "Oils, Paint, Chemicals and petroleum products"</li>
+<li> "Other metals, alloys, minerals and their scraps"</li>
+<li> "Others"</li>
+<li> "Outdoor furniture (swings etc.)"</li>
+<li> "Outsourced consultancy (recruitment, research, placement, transcription, visa etc.)"</li>
+<li> "Pet Shop, Pet Clinic & Pet Grooming Parlour"</li>
+<li> "Petrol pump & Gas station"</li>
+<li> "Power"</li>
+<li> "Professional services (branding, media, architecture, saloon, beauty parlour etc.)"</li>
+<li> "Property dealing & management (Rent, lease or Sell)"</li>
+<li> "Raw materials and parts used for manufacturing"</li>
+<li> "Real estate developer, Civil contractor"</li>
+<li> "Renewal (other than Via)"</li>
+<li> "Repair and maintenance services"</li>
+<li> "Repair and servicing of household appliances"</li>
+<li> "Restaurants, Cafes, food outlets & catering"</li>
+<li> "Retail and standard softwares, applications and ITES"</li>
+<li> "Seeds, Fertilizer, Pesticides, Cattle feeds and agricultural products"</li>
+<li> "Shares/Bitcoins/Old coins trading or Other speculative activities"</li>
+<li> "Shipping Services"</li>
+<li> "Supplier for switches,cables etc"</li>
+<li> "Support services (facilitators, intermediators, agents, etc.)"</li>
+<li> "Support services to industries like industrial design, warehousing, testing, repairing etc."</li>
+<li> "Tax planners / Auditors"</li>
+<li> "Tea / coffee vending machine & Tea / Coffee powder to Government / corporates"</li>
+<li> "Ticket, Travel & Tour Packages"</li>
+<li> "Tobacco Products"</li>
+<li> "Tools and equipments including electricals,transformers, inverters and batteries"</li>
+<li> "Vegetables, Fruits, Milk and other dairy products, Spices, Sea-food and food-processing"</li>
+<li> "Vehicles (New/second hand)"</li>
+<li> "Via cases"</li>
+
+</ul>
+</details>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+<strong>On Failure</strong> <br>
+Bad Request: 400 <br>
+Unauthorized: 401
+</aside>
+
+<aside class="notice">
+While the above sample request works really well for Business type - ‘Proprietorship’ and ‘Not Registered’
+Business types, we recommend that you refer to the link below for other business types such as ‘Partnerships’,
+‘Pvt ltd’, ‘LLP’ and ‘One person company’ to send us additional fields for additional directors and application.
+This 
+<a href="https://docs.google.com/spreadsheets/d/1G_ueFGeNEI17OOnAzahhZbaUdJVTOJjI07KYY-PhnPE/edit?usp=sharing">link</a>
+ also contains additional information data inputs that may help in better decisioning of the
+application.
+</aside>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/leadApplicationCreationUsingPOST" id="tryIt" target="_blank">Try it!</a></p>
+
+
+<h2 id='document-upload'>Document upload</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">--header</span> <span class="s1">'Content-Type: multipart/form-data'</span> 
+<span class="nt">--header</span> <span class="s1">'Accept: */*'</span> 
+<span class="nt">--header</span> <span class="s1">'X-Api-Key: aaaa-bbbb-cccc-dddd'</span>
+ <span class="o">{</span><span class="s2">"type"</span>:<span class="s2">"formData"</span><span class="o">}</span> 
+<span class="s1">'https://lkext.lendingkart.com/v2/partner/leads/documents
+?applicationId=LAI-110081529&amp;
+documentType=BankStatement-Company&amp;bankName=ABPB'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://lkext.lendingkart.com/v2/partner/leads/document-status
+  ?applicationId=LAI-110081529&amp;context=PRE_TERMS"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"GET"</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"X-Api-Key"</span><span class="o">,</span> <span class="s">"aaaa-bbbb-cccc-dddd"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://lkext.lendingkart.com/v2/partner/leads/document-status
+?applicationId=LAI-110081529&amp;context=PRE_TERMS"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'aaaa-bbbb-cccc-dddd'</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (Response code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">   </span><span class="err">no</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span></code></pre></div>
+<p>This API enables document upload functionality for partners. Collection of documents from customers in the right
+format is a time consuming process which often leads to delay in the application process. We require 3 standard
+documents for generating loan offers - ​ <strong>PAN Card of primary applicant​ , ​ Registration proof(GST Certificate)​</strong> of
+business and ​ <strong>Last 12 Months Bank statement​</strong> . We ask for more documents based on the application type.
+Please refer to the this  <a href="https://docs.google.com/spreadsheets/d/1znIB0ZiToDuTmh7dCdK4PS6Ssc_T70-XlREtdplOpj4/edit?usp=sharing">link</a> for detailed document checklist rules.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://lkext.lendingkart.com/admin/lead/​v2/partner/leads/documents/{applicationId}/{documentType}</code></p>
+<h3 id='query-parameter'>Query Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>Customer’s application id</td>
+<td>String</td>
+<td>true</td>
+</tr>
+<tr>
+<td>documentType</td>
+<td>document type which customer wants to upload</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+<strong>Expected file type:</strong>​ ​ jpg , pdf , jpeg , png , xlsx , xls, doc<br>
+<strong>Max File Size​ :</strong> 20MB (Please note each file uploaded against a document type could be upto 20MB)
+</aside>
+<h3 id='a-document-upload-api-in-case-of-bank-statement'>A. Document Upload API in case of Bank Statement</h3>
+<p>Bank statement is the most important document required for the Loan decision process. A bank statement not
+fulfilling the required criteria leads to delay in evaluation due to pendencies raised. To ensure that you source the
+Bank statement in our desired format, please follow the section in detail. Bank statement upload can happen in
+two ways</p>
+
+<ol>
+<li>Net banking PDF of last 12 months downloaded by users (Document type is mandatory. Rest of the fields
+are optional. We recommend sharing the other fields such as password in the API to ensure that our
+automation parser runs on the document without failure even when files are password protected)
+<a href="https://lkext.lendingkart.com/v2/partner/leads/documents?applicationId=LAI-110125545&amp;​%20documentT
+ype=BankStatement-Director%2FProperiotor%2FPartner​%20&amp;bankName=ABHY&amp;bankAccountNo=123&amp;password=12
+3">link</a></li>
+</ol>
+
+<p class="image-p">
+<image src="images/DocumentUploadBankStatment-44db30bb.png" alt="image1" />
+</p>
+
+<h3 id='b-net-banking-xlsx-file-provided-by-perfios'>B. Net banking XLSX file provided by Perfios</h3>
+
+<p>Perfios provides Netbanking output file in XLS format when the user logs into Netbanking</p>
+
+<p class="image-p">
+<image src="images/DocumentUploadPerfios-49c97aa7.png" alt="image1" />
+</p>
+
+<aside class="notice">
+<strong>documentType</strong>​ selected should be ​ <strong>BankStatementPerfios</strong> ​ if perfios output file is uploaded via document upload.
+<strong>Expected file type:</strong>​ ​ xlsx,xls
+</aside>
+
+<p><code>curl -X POST --header &#39;Content-Type: multipart/form-data&#39; --header &#39;Accept: application/json&#39;
+--header &#39;X-Api-Key: f3a25750-1e7f-4c34-84ae-c8ca92f1d211&#39; {&quot;type&quot;:&quot;formData&quot;}
+&#39;https://lkext.lendingkart.com/v2/partner/leads/documents?applicationId=LAI-110081529&amp;documentType=​ BankStatementPerfios​ &amp;bankName=ABNA&amp;bankAccountNo=38423823781&amp;password=12334&#39;</code></p>
+
+<p><strong><a href="https://docs.google.com/spreadsheets/d/1G81sMKBhwcKHUpWJCmolfdS5ElEGYgTpDoPBgf3w-Z4/edit?usp=sharing">click here</a> for bank enum values</strong></p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+
+<tr>
+<td>201</td>
+<td>Created</td>
+<td><code>{}</code></td>
+</tr>
+
+
+<tr>
+<td>400</td>
+<td>    
+Because of invalid or missing ApplicationId. Some common error messages are "ApplicationId not found" , "Invalid ApplicationId ", "Cannot read attachment for applicationId"</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "mobile may not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>    
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>    
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>    
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>    
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/uploadDocumentsUsingPOST" id="tryIt" target="_blank">Try it!</a></p>
+
+
+<h2 id='application-status'>Application status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Accept: application/json'</span> 
+<span class="nt">--header</span> <span class="s1">'X-Api-Key: aaaa-bbbb-cccc-dddd'</span>
+<span class="s1">'https://lkext.lendingkart.com/v2/partner/leads/applicationStatus
+/LAI-110081529'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://lkext.lendingkart.com/v2/partner/leads/applicationStatus
+   /LAI-110081529"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"GET"</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"X-Api-Key"</span><span class="o">,</span> <span class="s">"aaaa-bbbb-cccc-dddd"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://lkext.lendingkart.com/v2/partner/leads/applicationStatus
+/LAI-110081529"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'aaaa-bbbb-cccc-dddd'</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (Response code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"applicationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Terms Created"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"applicationSubStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TnC Sent"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"rejectionReasons"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"instantLoan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALSE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"loanDeliveryMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZERO_TOUCH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This API provides present application status and detailed messages of applications to partners. This API also
+returns rejection reasons for applications which are in rejected status.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://lkext.lendingkart.com/v2/partner/leads/applicationStatus/{applicationId}</code></p>
+<h3 id='query-parameter'>Query Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>Customer’s application id</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<p class="image-p">
+<image src="images/applicationStatusApi-4477e440.png" alt="image1" />
+</p>
+
+<h3 id='status-sub-status-and-rejections-reasons-master-list'>Status, Sub status and Rejections Reasons - Master list</h3>
+
+<p>Please find the list of status and sub status master values returned by Application Status API. Please note that
+this list would be updated as and when new status/sub status/Rejection reasons would be added in the system.
+Please use this <a href="https://docs.google.com/spreadsheets/d/16gL1BdC4ee_JqiYm4jA5gPfjlluM8dSiMR3t_d42nXI/edit?usp=sharing">list</a> for your reference.
+Please use the <strong>‘​ Status Sub status flow handling​ ’</strong> Tab to anchor user journey on your platforms based on
+guidelines provided. Currently, the push version of Status API does not exist, so we recommend polling of Status
+API after the suggested intervals mentioned in the sheet. We recommend only using the status values.</p>
+
+<table class="differnt-table"> 
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>    
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>    
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>    
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>    
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>    
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getApplicationStatusUsingGET" id="tryIt" target="_blank">Try it!</a></p>
+
+
+<h2 id='document-status'>Document Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">'Accept: application/json'</span> 
+<span class="nt">--header</span> <span class="s1">'X-Api-Key: aaaa-bbbb-cccc-dddd'</span> 
+<span class="s1">'https://lkext.lendingkart.com/v2/partner/leads/document-status
+?applicationId=LAI-110081529&amp;context=PRE_TERMS'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://lkext.lendingkart.com/v2/partner/leads/document-status
+  ?applicationId=LAI-110081529&amp;context=PRE_TERMS"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"GET"</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"X-Api-Key"</span><span class="o">,</span> <span class="s">"aaaa-bbbb-cccc-dddd"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://lkext.lendingkart.com/v2/partner/leads/document-status
+?applicationId=LAI-110081529&amp;context=PRE_TERMS"</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+<span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'aaaa-bbbb-cccc-dddd'</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (Response code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Statement"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"latestVerificationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankStatement-Director/Properiotor/Partner"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"latestVerificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-10T06:46:48.000+0000"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"pendencyDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"verificationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"autoGenText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Savings account statement of Axis Bank from 03-02-2015 to 03-02-2016 in original PDF format only"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"verificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-10T06:46:47.945+0000"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b31b6b7-ed2d-406a-86ee-620a427d4123"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration Proof"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"latestVerificationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPROVED"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuditedFinancials-RegProof"</span><span class="p">,</span><span class="nl">"latestVerificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-10T06:36:22.000+0000"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"pendencyDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"verificationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPROVED"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"autoGenText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Copy of valid Audited Financials"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"verificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-10T06:36:21.655+0000"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c7d51229-a0b2-4f1f-b372-728026ddf604"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DrugLicFdDrugControlCert-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FSSAICertificate-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GSTCertification-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GumastaCertificate-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IECLicense-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LabourDept-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Others-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RCunderMunicipality-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShopEstablishmentAct-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TaxCertificateNonGST-RegProof"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UdyogAadhaar-RegProof"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proprietor PAN"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"latestVerificationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"documentTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PanCard-Personal"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"latestVerificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-10T06:35:51.000+0000"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"pendencyDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"verificationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"autoGenText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAN of Rahul Kumar"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"verificationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-10T06:35:51.441+0000"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06a940cb-b034-4642-8ffe-1be01966040a"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This API provides document status and any document pendencies raised for an application. Please refer to
+document types enums in this <a href="https://docs.google.com/spreadsheets/d/1G81sMKBhwcKHUpWJCmolfdS5ElEGYgTpDoPBgf3w-Z4/edit?usp=s
+haring">sheet</a> below.</p>
+<h3 id='how-to-use-this-api'>How to use this API</h3>
+<p>Based on the stage an application is in, use this API with <strong>‘PRE_TERMS’ or ‘POST_TERMS’ or ‘ALL’</strong> to fetch the
+updated pendencies on documents required to complete the respective stage. ‘PRE_TERMS’ refers to the stage
+prior to Loan offer and returns document status details only of those documents that are required for decision.
+‘POST_TERMS’ refers to the stage post Offer Acceptance related to KYC. ‘ALL’ returns the document status of
+all the relevant documents required for the application.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://lkext.lendingkart.com/admin/lead/​v2/partner/leads/document-status/{applicationId}/{context}</code></p>
+<h3 id='query-parameter'>Query Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>Customer’s application id</td>
+<td>String</td>
+<td>true</td>
+</tr>
+<tr>
+<td>context:</td>
+<td>Customer’s application context (either PRE_TERMS,POST_TERMS,ALL)</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='response-fields'>Response Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Example values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>documentType</td>
+<td>Type of document</td>
+<td>&quot;Bank Statement&quot;</td>
+</tr>
+<tr>
+<td>latestVerificationStatus</td>
+<td>Final status of the document type</td>
+<td>&quot;PENDING&quot; or &quot;SUBMITTED&quot; or &quot;APPROVED&quot;</td>
+</tr>
+<tr>
+<td>documents</td>
+<td>list of all type of documents that can be uploaded for the given doc type</td>
+<td>[<br> {<br>&quot;documentTag&quot;: &quot;BankStatement-Director/Properiotor/Partner&quot;,<br> &quot;latestVerificationDate&quot;: &quot;2020-09-10T06:46:48.000+0000&quot;,<br>   &quot;pendencyDetails&quot;: [<br>   {<br>   &quot;verificationStatus&quot;: &quot;PENDING&quot;,<br>   &quot;autoGenText&quot;: &quot;Savings account statement of Axis Bank from 03-02-2015 to 03-02-2016 in original PDF format only&quot;,<br>   &quot;verificationDate&quot;: &quot;2020-09-10T06:46:47.945+0000&quot;,<br>   &quot;uuid&quot;: &quot;2b31b6b7-ed2d-406a-86ee-620a427d4123&quot;<br>   }<br>   ]<br>   }<br>   ]</td>
+</tr>
+<tr>
+<td>documentTag</td>
+<td>document type enum used in document upload api</td>
+<td>&quot;PanCard-Personal&quot;</td>
+</tr>
+<tr>
+<td>latestVerificationDate</td>
+<td>latest verification date of that document tag</td>
+<td>&quot;2020-09-10T06:35:51.000+0000&quot;,</td>
+</tr>
+<tr>
+<td>pendencyDetails</td>
+<td>List of all the pendencies generated</td>
+<td>&quot;Bank Statement&quot;</td>
+</tr>
+<tr>
+<td>verificationStatus:</td>
+<td>status of a pendency Values</td>
+<td>&quot;PENDING&quot; or &quot;SUBMITTED&quot; or &quot;APPROVED&quot;</td>
+</tr>
+<tr>
+<td>autoGenText</td>
+<td>text that states the requirement</td>
+<td>&quot;PAN of Rahul Kumar&quot;</td>
+</tr>
+<tr>
+<td>verificationDate</td>
+<td>Date of last verification of the pendency</td>
+<td>&quot;2020-09-10T06:35:51.000+0000&quot;</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>unique identifier of the pendency</td>
+<td>&quot;06a940cb-b034-4642-8ffe-1be01966040a&quot;</td>
+</tr>
+</tbody></table>
+
+<p class="image-p">
+<image src="images/documentStatusApi-5b83d5bc.png" alt="image1" />
+</p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>    
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>    
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>    
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>    
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>    
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getDocumentPendenciesUsingGET" id="tryIt" target="_blank">Try it!</a></p>
+
+<p><h2 id='terms-sanction'>Terms Sanction</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">&#39;Accept: application/json&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;X-Api-Key: aaaa-bbbb-cccc-dddd&#39;</span> 
+<span class="s1">&#39;https://lkext.lendingkart.com/v2/partner/leads/termsAndConditions
+/LAI-110081529&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/termsAndConditions
+  /LAI-110081529&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">&quot;GET&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Accept&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;X-Api-Key&quot;</span><span class="o">,</span> <span class="s">&quot;aaaa-bbbb-cccc-dddd&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/termsAndConditions
+/LAI-110081529&quot;</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+<span class="s">&#39;X-Api-Key&#39;</span><span class="p">:</span> <span class="s">&#39;aaaa-bbbb-cccc-dddd&#39;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (Response code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;calculationMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Declining Balance&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;disbursalAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">144559</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;documentationCharges&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;installmentAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1145</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;insuranceCharges&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;interestRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;loanAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">146343</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;mailNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;M0&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;period&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MONTHLY&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;prePaidFeePercentage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;gst&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;tenure&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;annualizedInterestRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;dateOfGeneration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-04-05T08:15:08.000+0000&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;crossSellTypeMap&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;IHO&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;displayValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Health &amp; Wellness&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1694.92</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;gst&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">305.08</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;amountWithGst&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2000.0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This API provides the latest offer for the application. Overall offer comprises different components. Disbursed
+Amount is a function of Sanctioned amount, Documentation charges, Insurance charges, Processing Fees and
+Cross sell charges. You dont have to re-calculate the values and directly consume the values in your platforms.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://lkext.lendingkart.com/admin/lead/​v2/partner/leads/termsAndConditions/{applicationId}</code></p>
+<h3 id='query-parameter'>Query Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>Customer’s application id</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='response-fields'>Response Fields</h3>
+<table><thead>
+<tr>
+<th>Offer Component</th>
+<th>Field</th>
+<th>Description</th>
+<th>Data type</th>
+<th>Sample Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Sanctioned Amount</td>
+<td>loanAmount</td>
+<td>Loan amount sanctioned</td>
+<td>number</td>
+<td>1035000</td>
+</tr>
+<tr>
+<td>Insurance Charges<br>(Without GST)</td>
+<td>insuranceCharges</td>
+<td>Charges deducted for insurance</td>
+<td>number</td>
+<td>28235</td>
+</tr>
+<tr>
+<td>Documentation Charges<br>(Without GST)</td>
+<td>documentationCharges</td>
+<td>Charges deduced for documentation</td>
+<td>number</td>
+<td>5700</td>
+</tr>
+<tr>
+<td>Processing Fees<br>(Without GST)</td>
+<td>PrepaidFeepercentage</td>
+<td>Processing fee charges.This is returned as %</td>
+<td>number</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>Health and Wellness charges</td>
+<td>crossSellTypeMap.IHO</td>
+<td>Object containing details of charges for health and wellness(IHO). In case, IHO is not applicable for this terms offer, then this key ‘IHO’ will not be present in the field ‘crossSellTypeMap’.</td>
+<td>number</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>Health and Wellness charges <br>(Without GST)</td>
+<td>crossSellTypeMap.IHO.amount</td>
+<td>IHO coupon price</td>
+<td>number</td>
+<td>1694.92</td>
+</tr>
+<tr>
+<td>GST component of Health &amp; Wellness</td>
+<td>crossSellTypeMap.IHO.gst</td>
+<td>GST rate for above IHO coupon price</td>
+<td>number</td>
+<td>305.08</td>
+</tr>
+<tr>
+<td>Health and Wellness charges <br>(With GST)</td>
+<td>crossSellTypeMap.IHO.amountWithGst</td>
+<td>IHO coupon price <br>(with GST).</td>
+<td>number</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>GST</td>
+<td>gst</td>
+<td>GST to be added to all components in %</td>
+<td>number</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Disbursal Amount</td>
+<td>disbursalAmount</td>
+<td>Final disbursal Amount to customer</td>
+<td>number</td>
+<td>962423</td>
+</tr>
+<tr>
+<td>Terms Version</td>
+<td>mailNumber</td>
+<td>Version number for Offer</td>
+<td>String</td>
+<td>m0</td>
+</tr>
+<tr>
+<td>EMI</td>
+<td>instalmentAmount</td>
+<td>EMI on offer</td>
+<td>number</td>
+<td>49450</td>
+</tr>
+<tr>
+<td>Interest Rate</td>
+<td>interestRate</td>
+<td>Loan Interest Rate in %</td>
+<td>number</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Tenure</td>
+<td>tenure</td>
+<td>Loan Tenure</td>
+<td>number</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Annualized Interest Rate</td>
+<td>annualizedInterestRate</td>
+<td>Annualized Interest Rate</td>
+<td>number</td>
+<td>39.43</td>
+</tr>
+<tr>
+<td>Date of Generation</td>
+<td>dateOfGeneration</td>
+<td>Terms Generation date</td>
+<td>String</td>
+<td>&quot;2018-04-05T08:15:08.000+0000&quot;</td>
+</tr>
+<tr>
+<td>Period</td>
+<td>period</td>
+<td>Frequency</td>
+<td>String</td>
+<td>monthly</td>
+</tr>
+<tr>
+<td>Calculation Method</td>
+<td>calculationMethod</td>
+<td>Declining/Reducing</td>
+<td>String</td>
+<td>Declining</td>
+</tr>
+</tbody></table></p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>    
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>    
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>    
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>    
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>    
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getTermsAndConditionsUsingGET" id="tryIt" target="_blank">Try it!</a></p>
+
+<p><h2 id='terms-acceptance'>Terms acceptance</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">--header</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;Accept: application/json&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;X-Api-Key: aaaa-bbbb-cccc-dddd&#39;</span>
+<span class="nt">-d</span> 
+<span class="s1">&#39;{
+  &quot;applicationId&quot;: &quot;LAI-110081529&quot;,
+  &quot;channel&quot;: &quot;string&quot;,
+  &quot;response&quot;: &quot;Accepted&quot;,
+  &quot;callbackDateTime&quot;: &quot;2019-04-05T08:15:08.000+0000&quot;
+}&#39;</span>
+<span class="s1">&#39;https://lkext.lendingkart.com/v2/partner/leads
+  /termsAndConditions/acceptance&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;application/json&quot;</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="err">&#39;</span><span class="o">{</span>
+  <span class="s">&quot;applicationId&quot;</span><span class="o">:</span> <span class="s">&quot;LAI-110081529&quot;</span><span class="o">,</span>
+  <span class="s">&quot;channel&quot;</span><span class="o">:</span> <span class="s">&quot;string&quot;</span><span class="o">,</span>
+  <span class="s">&quot;response&quot;</span><span class="o">:</span> <span class="s">&quot;Accepted&quot;</span><span class="o">,</span>
+  <span class="s">&quot;callbackDateTime&quot;</span><span class="o">:</span> <span class="s">&quot;2019-04-05T08:15:08.000+0000&quot;</span>
+<span class="o">}</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads
+  /termsAndConditions/acceptance&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">&quot;PUT&quot;</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Content-Type&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Accept&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;X-Api-Key&quot;</span><span class="o">,</span> <span class="s">&quot;aaaa-bbbb-cccc-dddd&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads
+/termsAndConditions/acceptance&quot;</span>
+<span class="n">payload</span><span class="o">=</span><span class="s">&#39;{
+  &quot;applicationId&quot;: &quot;LAI-110081529&quot;,
+  &quot;channel&quot;: &quot;string&quot;,
+  &quot;response&quot;: &quot;Accepted&quot;,
+  &quot;callbackDateTime&quot;: &quot;2019-04-05T08:15:08.000+0000&quot;
+}&#39;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+<span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+<span class="s">&#39;X-Api-Key&#39;</span><span class="p">:</span> <span class="s">&#39;aaaa-bbbb-cccc-dddd&#39;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;PUT&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span></p>
+
+<p></code></pre></div>
+<blockquote>
+<p>Output Response (Response code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Approved&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Thank you for accepting the terms of loan.Our team will give you a call shortly to confirm the accepted loan terms. Once
+confirmed,your loan agreement will be dispatched to you.&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Output Response (Response code:404)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;errorCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Terms Data not found for this Application.&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This API enables terms Acceptance / Rejection / Call Back requests based on the terms offer. Ensure that you
+query the latest terms offer using the Terms and Conditions API before accepting or rejecting the terms.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT ​ https://lkext.lendingkart.com/admin/lead/v2/partner/leads/termsAndConditions/acceptance</code></p>
+<h3 id='parameter'>Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>Customer’s application id</td>
+<td>String</td>
+<td>true</td>
+</tr>
+<tr>
+<td>response</td>
+<td>Customer’s response for the terms<br>(“Accepted” or “Declined” or “Callback Requested”)</td>
+<td>String</td>
+<td>true</td>
+</tr>
+<tr>
+<td>callbackDateTime</td>
+<td>Terms accepted date time</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table></p>
+
+<aside class="notice">
+callbackDateTime should be in UTC DateTime format e.g. “2019-08-11T12:00:00.000Z”. It is used only when
+response is <strong>“Callback Requested” </strong>.
+</aside>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>    
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>    
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>    
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>    
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>    
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/termsAcceptanceUsingPUT" id="tryIt" target="_blank">Try it!</a></p>
+
+<p><h2 id='download-agreement'>Download agreement</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">&#39;Accept: <em>/</em>&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;X-Api-Key: aaaa-bbbb-cccc-dddd&#39;</span> 
+<span class="s1">&#39;https://lkext.lendingkart.com/v2/partner/leads/agreement
+/LAI-110081529/download&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/agreement
+  /LAI-110081529/download&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">&quot;GET&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Accept&quot;</span><span class="o">,</span> <span class="s">&quot;<em>/</em>&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;X-Api-Key&quot;</span><span class="o">,</span> <span class="s">&quot;aaaa-bbbb-cccc-dddd&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/agreement
+/LAI-110081529/download&quot;</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;<em>/</em>&#39;</span><span class="p">,</span>
+<span class="s">&#39;X-Api-Key&#39;</span><span class="p">:</span> <span class="s">&#39;aaaa-bbbb-cccc-dddd&#39;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (Response code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="err">no</span><span class="w"> </span><span class="err">content</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Output Response (Response code:404)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;errorCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Loan not found for given applicationId :LAI-1099994512&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Output Response (Response code:503)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;errorCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unable to read/write the file&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This API will view/download the agreement generated for an application. Please call this API only when
+Application status changes to Agreement Stage.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET ​ https://lkext.lendingkart.com/admin/lead/v2/partner/leads/​ agreement/{applicationId}/{receiveType}</code></p>
+<h3 id='query-parameter'>Query Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>Customer’s application id</td>
+<td>String</td>
+<td>true</td>
+</tr>
+<tr>
+<td>receiveType</td>
+<td>can take the values “view” or “download” (​ view will view the pdf on browser and download will download the pdf)</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table></p>
+
+<p class="image-p">
+<image src="images/downloadAgreementApi-26d582fc.png" alt="image1" />
+</p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>    
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>    
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>    
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>    
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>    
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/partnerAgreementDownloadUsingGET" id="tryIt" target="_blank">Try it!</a></p>
+
+<p><h2 id='get-disbursal-data'>Get disbursal data</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">--header</span> <span class="s1">&#39;Accept: application/json&#39;</span> 
+<span class="nt">--header</span> <span class="s1">&#39;X-Api-Key: aaaa-bbbb-cccc-dddd&#39;</span> 
+<span class="s1">&#39;https://lkext.lendingkart.com/v2/partner/leads/disbursal-data/LAI-110081529&#39;</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/disbursal-data/LAI-110081529&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">&quot;GET&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;Accept&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&quot;X-Api-Key&quot;</span><span class="o">,</span> <span class="s">&quot;aaaa-bbbb-cccc-dddd&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://lkext.lendingkart.com/v2/partner/leads/disbursal-data/LAI-110081529&quot;</span>
+<span class="n">payload</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+<span class="s">&#39;X-Api-Key&#39;</span><span class="p">:</span> <span class="s">&#39;aaaa-bbbb-cccc-dddd&#39;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output Response (Response code:200)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;annualizedInterestRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">41.7</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;calculationMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Declining Balance&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;crossSellTypeMap&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;IHO&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;amountWithGst&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;applicable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;crossSellType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IHO&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;displayValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Health &amp; Wellness&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;gst&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1694.91</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">&quot;disbursalDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-21T00:00:00.000Z&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;documentationCharges&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6726</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;emiDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="nl">&quot;emiDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;emiAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">113418</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;totalEmis&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="nl">&quot;emisRemaining&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;nextDueDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;emiEndDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-12-31T18:30:00.000Z&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;gst&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1486626.2711864407</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;installmentAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">88306</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;insuranceCharges&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14732</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;interestRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">16.2</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;interestType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fixed&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;loanAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1200000</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;loanBankAccountDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;accountHolderName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;S.S.D. MOBILE WORLD&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;accountNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;accountType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;bankName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;branchName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">&quot;loanDisbursalAmount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1754219</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;loanId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LNH.O00120-210000678&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;period&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MONTHLY&quot;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;prePaidFeePercentage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;tenure&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Output Response (Response code:404)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;errorCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Loan not found for given applicationId :LAI-1099994512&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Output Response (Response code:400)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">&quot;errorCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+</span><span class="nl">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid application Id LAI-109953345&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This API provides the details related to disbursal of a loan. Please trigger this API only when the ‘Application
+Status’ returned by Status API is ‘Disbursed’.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://lkext.lendingkart.com/admin/lead/v2/partner/leads/disbursal-data/{applicationId}</code></p>
+<h3 id='query-parameter'>Query Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>Customer’s application id</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Api-Key</td>
+<td>your api authorization key</td>
+<td>String</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id='response-fields'>Response Fields</h3>
+<table><thead>
+<tr>
+<th>Disbursal Details <br> Components</th>
+<th>Field</th>
+<th>Description</th>
+<th>Data type</th>
+<th>Sample Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Loan ID</td>
+<td>loanAmount</td>
+<td>loanId</td>
+<td>String</td>
+<td>LAI-XXX</td>
+</tr>
+<tr>
+<td>Sanctioned Amount</td>
+<td>loanAmount</td>
+<td>Loan amount sanctioned</td>
+<td>number</td>
+<td>1035000</td>
+</tr>
+<tr>
+<td>Insurance Charges<br>(Without GST)</td>
+<td>insuranceCharges</td>
+<td>Charges deducted for insurance</td>
+<td>number</td>
+<td>28235</td>
+</tr>
+<tr>
+<td>Documentation Charges<br>(Without GST)</td>
+<td>documentationCharges</td>
+<td>Charges deduced for documentation</td>
+<td>number</td>
+<td>5700</td>
+</tr>
+<tr>
+<td>Processing Fees<br>(Without GST)</td>
+<td>PrepaidFeepercentage</td>
+<td>Processing fee charges.This is returned as %</td>
+<td>number</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>Health and Wellness charges</td>
+<td>crossSellTypeMap.IHO</td>
+<td>Object containing details of charges for health and wellness(IHO). In case, IHO is not applicable for this terms offer, then this key ‘IHO’ will not be present in the field ‘crossSellTypeMap’.</td>
+<td>number</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>Health and Wellness charges <br>(Without GST)</td>
+<td>crossSellTypeMap.IHO.amount</td>
+<td>IHO coupon price</td>
+<td>number</td>
+<td>1694.92</td>
+</tr>
+<tr>
+<td>GST component of Health &amp; Wellness</td>
+<td>crossSellTypeMap.IHO.gst</td>
+<td>GST rate for above IHO coupon price</td>
+<td>number</td>
+<td>305.08</td>
+</tr>
+<tr>
+<td>Health and Wellness charges <br>(With GST)</td>
+<td>crossSellTypeMap.IHO.amountWithGst</td>
+<td>IHO coupon price <br>(with GST).</td>
+<td>number</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>GST</td>
+<td>gst</td>
+<td>GST to be added to all components in %</td>
+<td>number</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Disbursal Amount</td>
+<td>disbursalAmount</td>
+<td>Final disbursal Amount to customer</td>
+<td>number</td>
+<td>962423</td>
+</tr>
+<tr>
+<td>Terms Version</td>
+<td>mailNumber</td>
+<td>Version number for Offer</td>
+<td>String</td>
+<td>m0</td>
+</tr>
+<tr>
+<td>EMI</td>
+<td>instalmentAmount</td>
+<td>EMI on offer</td>
+<td>number</td>
+<td>49450</td>
+</tr>
+<tr>
+<td>Interest Rate</td>
+<td>interestRate</td>
+<td>Loan Interest Rate in %</td>
+<td>number</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Tenure</td>
+<td>tenure</td>
+<td>Loan Tenure</td>
+<td>number</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Annualized Interest Rate</td>
+<td>annualizedInterestRate</td>
+<td>Annualized Interest Rate</td>
+<td>number</td>
+<td>39.43</td>
+</tr>
+<tr>
+<td>Date of Generation</td>
+<td>dateOfGeneration</td>
+<td>Terms Generation date</td>
+<td>String</td>
+<td>&quot;2018-04-05T08:15:08.000+0000&quot;</td>
+</tr>
+<tr>
+<td>Period</td>
+<td>period</td>
+<td>Frequency</td>
+<td>String</td>
+<td>monthly</td>
+</tr>
+<tr>
+<td>Calculation Method</td>
+<td>calculationMethod</td>
+<td>Declining/Reducing</td>
+<td>String</td>
+<td>Flat</td>
+</tr>
+<tr>
+<td>emiDetails</td>
+<td>emiAmount</td>
+<td>Emi Amount to be paid</td>
+<td>number</td>
+<td>49450</td>
+</tr>
+<tr>
+<td>Total Emis</td>
+<td>totalEmis</td>
+<td>Total number of EMIs</td>
+<td>number</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Remaining emis</td>
+<td>emis</td>
+<td>number of EMIs remaining</td>
+<td>number</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Next Due Date</td>
+<td>nextDueDate</td>
+<td>Next EMI Due Date</td>
+<td>String</td>
+<td>2018-12-18</td>
+</tr>
+<tr>
+<td>Emi End Date</td>
+<td>emiEndDate</td>
+<td>Last EMI Due Date</td>
+<td>String</td>
+<td>2021-12-18</td>
+</tr>
+</tbody></table></p>
+
+<p class="image-p">
+<image src="images/getDisbursalApi-e0021c57.png" alt="image1" />
+</p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>    
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>    
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>    
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>    
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>    
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<p><a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getDisbursalDataUsingGET" id="tryIt" target="_blank">Try it!</a></p>
+
+<h1 id='authentication'>Authentication</h1><h2 id='onboarding-process'>Onboarding Process</h2>
+<p>Please reach out to your SPOC from the Lendingkart Partnerships team to get your UAT API Key.</p>
+
+
+<h1 id='faqs'>FAQs</h1>
+
+<details>
+<summary class="question">
+1. How do I generate the API key ?
+</summary>
+<p class="answer">
+Please reach out to your SI team SPOC for generating your lead source and API key as part of onboarding process.
+</p>
+</details>
+
+<details>
+<summary class="question">
+2. How do I test the APIs?
+</summary>
+<p class="answer">
+Once the team shares the UAT API key, complete the integration process and drop and email to Help.partnerdb@lendingkart.com for final signoff on your API integration.
+</p>
+</details>
+
+<details>
+<summary class="question">
+3. How do I get the Prod API key?
+</summary>
+<p class="answer">
+Once the UAT test integration is approved by Lendingkart team after testing the end to end flow, Production key will be shared.
+</p>
+</details>
+
+<details>
+<summary class="question">
+4. I am using APIs to input Application data along with Documents. How do I track the data ?
+</summary>
+<p class="answer">
+Login to your partner dashboard using the credentials shared for your channel and track the applications.
+</p>
+</details>
+
+<details>
+<summary class="question">
+5. How do I track the Status of applications in my own platform ?
+</summary>
+<p class="answer">
+You can use the Application status and document status APIs to fetch the most recent status that can be shown on your platforms.
+</p>
+</details>
+
+<details>
+<summary class="question">
+6. I am facing issues in Reconciliation. The Application data shown in Partner Dashboard isn't matching to the API requests at our end.
+</summary>
+<p class="answer">
+Please mail us at Help.partnerdb@lendingkart.com and our team will help you in the reconciliation process. 
+</p>
+</details>
+
+<details>
+<summary class="question">
+7. How much time does it usually take for the API go live process ?
+</summary>
+<p class="answer">
+This completely depends on the effort required in integrating our APIs. We normally respond within 24 hours on your queries related to API integrations. We have seen Partners going live within one week. 
+</p>
+</details>
+
+<details>
+<summary class="question">
+8. I am not able to see all the leads I pass to Lendingkart on Partner dashboard. What is the issue here ?
+</summary>
+<p class="answer">
+Partner dashboard only shows non duplicate rejected leads recorded in the system. You can download the lead report to check all the exhaustive leads passed to the reconciliation. 
+</p>
+</details>
+
+<h1 id='webhooks'>Webhooks</h1>
+
+<p>Lendingkart uses webhooks to notify partners about any updates for their applications. Once you have registered for a webhook, you will be directly notified of any change, instead of having to make API calls repeatedly.
+Currently, we are using webhooks to notify about status updates of an application. On receiving this notification, you can then call the Application Status API to check the current status of that application.</p>
+
+<p>We will deliver this notification via an HTTP POST request with JSON body, to the API endpoint given by the partner. This endpoint can have the following methods authentication methods:</p>
+
+<ul>
+<li>No Auth (not recommended)</li>
+<li>Basic Auth</li>
+<li>Custom Header</li>
+<li>OAuth</li>
+</ul>
+
+<h3 id='headers'>Headers</h3>
+
+<p>content-type: application/json</p>
+
+<blockquote>
+<p>Payload example:</p>
+</blockquote>
+
+<p><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">&quot;applicationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LAI-123130248&quot;</span><span class="p">,</span><span class="w">
+   </span><span class="nl">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STATUS_UPDATE&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Required</th>
+<th>Data type</th>
+<th>Example values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applicationId</td>
+<td>applicationId for which the event has occurred</td>
+<td>true</td>
+<td>String</td>
+<td>LAI-1234</td>
+</tr>
+<tr>
+<td>type</td>
+<td>type of event that has occurred. Possible value &quot;STATUS_UPDATE&quot;</td>
+<td>true</td>
+<td>String</td>
+<td>&quot;STATUS_UPDATE&quot;</td>
+</tr>
+</tbody></table></p>
+
+<p><strong>To register you API endpoint for webhooks, reach out to us at <a href="mailto:help.partnerDB@lendingkart.com"​>help.partnerdb@lendingkart.com</a></strong></p>
+<h1 id='errors'>Errors</h1>
+<p>The Lendingkart API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+<h1 id='support'>Support</h1>
+<p>Please mail us at <a href="help.partnerdb@lendingkart.com">help.partnerDB@lendingkart.com</a>.</p></p>
+
+      </div>
+      <div class="dark-box" style="display:none;">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="java">java</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
