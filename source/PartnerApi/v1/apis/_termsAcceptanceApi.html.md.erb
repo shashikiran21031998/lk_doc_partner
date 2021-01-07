@@ -1,0 +1,167 @@
+## Terms acceptance
+    
+```shell
+curl -X PUT --header 'Content-Type: application/json' 
+--header 'Accept: application/json' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd'
+-d 
+'{
+  "applicationId": "LAI-110081529",
+  "channel": "string",
+  "response": "Accepted",
+  "callbackDateTime": "2019-04-05T08:15:08.000+0000"
+}'
+'https://lkext.lendingkart.com/v2/partner/leads
+  /termsAndConditions/acceptance'
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, '{
+  "applicationId": "LAI-110081529",
+  "channel": "string",
+  "response": "Accepted",
+  "callbackDateTime": "2019-04-05T08:15:08.000+0000"
+}');
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads
+  /termsAndConditions/acceptance")
+  .method("PUT", body)
+  .addHeader("Content-Type", "application/json")
+  .addHeader("Accept", "application/json")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads
+/termsAndConditions/acceptance"
+payload='{
+  "applicationId": "LAI-110081529",
+  "channel": "string",
+  "response": "Accepted",
+  "callbackDateTime": "2019-04-05T08:15:08.000+0000"
+}'
+headers = {
+'Content-Type': 'application/json',
+'Accept': 'application/json',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("PUT", url, headers=headers, data=payload)
+print(response.text)
+
+```
+
+>Output Response (Response code:200)
+
+
+```json
+{
+"status": "Approved",
+"message": "Thank you for accepting the terms of loan.Our team will give you a call shortly to confirm the accepted loan terms. Once
+confirmed,your loan agreement will be dispatched to you."
+}
+```
+>Output Response (Response code:404)
+
+
+```json
+{
+"errorCode": 104,
+"message": "Terms Data not found for this Application."
+}
+```
+
+This API enables terms Acceptance / Rejection / Call Back requests based on the terms offer. Ensure that you
+query the latest terms offer using the Terms and Conditions API before accepting or rejecting the terms.
+
+
+### HTTP Request
+`PUT ​ https://lkext.lendingkart.com/admin/lead/v2/partner/leads/termsAndConditions/acceptance`
+
+###Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|applicationId|Customer’s application id|String|true|
+|response|Customer’s response for the terms<br>(“Accepted” or “Declined” or “Callback Requested”)|String|true|
+|callbackDateTime|Terms accepted date time|String|true|
+
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+
+<aside class="notice">
+callbackDateTime should be in UTC DateTime format e.g. “2019-08-11T12:00:00.000Z”. It is used only when
+response is <strong>“Callback Requested” </strong>.
+</aside>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>	
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>	
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>	
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>	
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>	
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/termsAcceptanceUsingPUT" id="tryIt" target="_blank">Try it!</a>
+

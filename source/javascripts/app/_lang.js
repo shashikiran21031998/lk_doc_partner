@@ -20,6 +20,7 @@ under the License.
 
   var languages = [];
 
+  window.pushURL = pushURL;
   window.setupLanguages = setupLanguages;
   window.activateLanguage = activateLanguage;
   window.getLanguageFromQueryString = getLanguageFromQueryString;
@@ -27,9 +28,10 @@ under the License.
   function activateLanguage(language) {
     if (!language) return;
     if (language === "") return;
+    
 
-    $(".lang-selector a").removeClass('active');
-    $(".lang-selector a[data-language-name='" + language + "']").addClass('active');
+    $(".lang-selector1 a").removeClass('active');
+    $(".lang-selector1 a[data-language-name='" + language + "']").addClass('active');
     for (var i=0; i < languages.length; i++) {
       $(".highlight.tab-" + languages[i]).hide();
       $(".lang-specific." + languages[i]).hide();
@@ -40,9 +42,9 @@ under the License.
     window.recacheHeights();
 
     // scroll to the new location of the position
-    if ($(window.location.hash).get(0)) {
-      $(window.location.hash).get(0).scrollIntoView(true);
-    }
+    // if ($(window.location.hash).get(0)) {
+    //   $(window.location.hash).get(0).scrollIntoView(true);
+    // }
   }
 
   // parseURL and stringifyURL are from https://github.com/sindresorhus/query-string
@@ -156,6 +158,7 @@ under the License.
   $(function() {
     $(".lang-selector a").on("click", function() {
       var language = $(this).data("language-name");
+
       pushURL(language);
       activateLanguage(language);
       return false;

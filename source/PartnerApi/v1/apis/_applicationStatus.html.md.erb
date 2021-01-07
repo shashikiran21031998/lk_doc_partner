@@ -1,0 +1,142 @@
+## Application status
+    
+```shell
+curl -X GET --header 'Accept: application/json' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd'
+'https://lkext.lendingkart.com/v2/partner/leads/applicationStatus
+/LAI-110081529'
+```
+
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/applicationStatus
+   /LAI-110081529")
+  .method("GET", null)
+  .addHeader("Accept", "application/json")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/applicationStatus
+/LAI-110081529"
+payload={}
+headers = {
+'Accept': 'application/json',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("GET", url, headers=headers, data=payload)
+print(response.text)
+```
+
+>Output Response (Response code:200)
+
+
+```json
+{
+  "applicationStatus": "Terms Created",
+  "applicationSubStatus": "TnC Sent",
+  "rejectionReasons": "null",
+  "instantLoan": "FALSE",
+  "loanDeliveryMethod": "ZERO_TOUCH"
+}
+```
+
+This API provides present application status and detailed messages of applications to partners. This API also
+returns rejection reasons for applications which are in rejected status.
+
+
+### HTTP Request
+`GET https://lkext.lendingkart.com/v2/partner/leads/applicationStatus/{applicationId}`
+
+###Query Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|applicationId|Customer’s application id|String|true|
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+
+<p class="image-p">
+<image src="./images/applicationStatusApi.png" alt="image1" />
+</p>
+
+### Status, Sub status and Rejections Reasons - Master list
+Please find the list of status and sub status master values returned by Application Status API. Please note that
+this list would be updated as and when new status/sub status/Rejection reasons would be added in the system.
+Please use this [list](https://docs.google.com/spreadsheets/d/16gL1BdC4ee_JqiYm4jA5gPfjlluM8dSiMR3t_d42nXI/edit?usp=sharing) for your reference.
+Please use the **‘​ Status Sub status flow handling​ ’** Tab to anchor user journey on your platforms based on
+guidelines provided. Currently, the push version of Status API does not exist, so we recommend polling of Status
+API after the suggested intervals mentioned in the sheet. We recommend only using the status values.
+
+<table class="differnt-table"> 
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>	
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>	
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>	
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>	
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>	
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getApplicationStatusUsingGET" id="tryIt" target="_blank">Try it!</a>

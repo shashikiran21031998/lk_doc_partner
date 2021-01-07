@@ -1,0 +1,177 @@
+## Document upload
+    
+```shell
+curl -X POST --header 'Content-Type: multipart/form-data' 
+--header 'Accept: */*' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd'
+ {"type":"formData"} 
+'https://lkext.lendingkart.com/v2/partner/leads/documents
+?applicationId=LAI-110081529&
+documentType=BankStatement-Company&bankName=ABPB'
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/document-status
+  ?applicationId=LAI-110081529&context=PRE_TERMS")
+  .method("GET", null)
+  .addHeader("Accept", "application/json")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/document-status
+?applicationId=LAI-110081529&context=PRE_TERMS"
+payload={}
+headers = {
+'Accept': 'application/json',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("GET", url, headers=headers, data=payload)
+print(response.text)
+```
+
+>Output Response (Response code:200)
+
+
+```json
+   no response
+```
+
+This API enables document upload functionality for partners. Collection of documents from customers in the right
+format is a time consuming process which often leads to delay in the application process. We require 3 standard
+documents for generating loan offers - ​ **PAN Card of primary applicant​ , ​ Registration proof(GST Certificate)​** of
+business and ​ **Last 12 Months Bank statement​** . We ask for more documents based on the application type.
+Please refer to the this  [link](https://docs.google.com/spreadsheets/d/1znIB0ZiToDuTmh7dCdK4PS6Ssc_T70-XlREtdplOpj4/edit?usp=sharing) for detailed document checklist rules.
+
+
+
+### HTTP Request
+`POST https://lkext.lendingkart.com/admin/lead/​v2/partner/leads/documents/{applicationId}/{documentType}`
+
+###Query Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|applicationId|Customer’s application id|String|true|
+|documentType|document type which customer wants to upload|String|true|
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+<aside class="notice">
+<strong>Expected file type:</strong>​ ​ jpg , pdf , jpeg , png , xlsx , xls, doc<br>
+<strong>Max File Size​ :</strong> 20MB (Please note each file uploaded against a document type could be upto 20MB)
+</aside>
+
+### A. Document Upload API in case of Bank Statement
+Bank statement is the most important document required for the Loan decision process. A bank statement not
+fulfilling the required criteria leads to delay in evaluation due to pendencies raised. To ensure that you source the
+Bank statement in our desired format, please follow the section in detail. Bank statement upload can happen in
+two ways
+
+1. Net banking PDF of last 12 months downloaded by users (Document type is mandatory. Rest of the fields
+are optional. We recommend sharing the other fields such as password in the API to ensure that our
+automation parser runs on the document without failure even when files are password protected)
+[link](https://lkext.lendingkart.com/v2/partner/leads/documents?applicationId=LAI-110125545&​ documentT
+ype=BankStatement-Director%2FProperiotor%2FPartner​ &bankName=ABHY&bankAccountNo=123&password=12
+3)
+
+<p class="image-p">
+<image src="./images/DocumentUploadBankStatment.png" alt="image1" />
+</p>
+### B. Net banking XLSX file provided by Perfios
+Perfios provides Netbanking output file in XLS format when the user logs into Netbanking
+
+
+<p class="image-p">
+<image src="./images/DocumentUploadPerfios.png" alt="image1" />
+</p>
+<aside class="notice">
+<strong>documentType</strong>​ selected should be ​ <strong>BankStatementPerfios</strong> ​ if perfios output file is uploaded via document upload.
+<strong>Expected file type:</strong>​ ​ xlsx,xls
+</aside>
+`curl -X POST --header 'Content-Type: multipart/form-data' --header 'Accept: application/json'
+--header 'X-Api-Key: f3a25750-1e7f-4c34-84ae-c8ca92f1d211' {"type":"formData"}
+'https://lkext.lendingkart.com/v2/partner/leads/documents?applicationId=LAI-110081529&documentType=​ BankStatementPerfios​ &bankName=ABNA&bankAccountNo=38423823781&password=12334'`
+
+**[click here](https://docs.google.com/spreadsheets/d/1G81sMKBhwcKHUpWJCmolfdS5ElEGYgTpDoPBgf3w-Z4/edit?usp=sharing) for bank enum values**
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+
+<tr>
+<td>201</td>
+<td>Created</td>
+<td><code>{}</code></td>
+</tr>
+
+
+<tr>
+<td>400</td>
+<td>	
+Because of invalid or missing ApplicationId. Some common error messages are "ApplicationId not found" , "Invalid ApplicationId ", "Cannot read attachment for applicationId"</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "mobile may not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>	
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>	
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>	
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>	
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/uploadDocumentsUsingPOST" id="tryIt" target="_blank">Try it!</a>
+
+

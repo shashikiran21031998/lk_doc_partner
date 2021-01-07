@@ -1,0 +1,75 @@
+
+<div class="right-introduction">
+<h2>Getting Started ?</h2>
+<span>Check our <a href="https://uat-vernac.lendingkart.com/xlr8/" target="_blank">[xlr8]</a> page to know more about our product.</span>
+
+
+<div class="api-key">
+<div class="heading">
+<span>Production url</span>
+</div>
+<div class="code">
+https://api.lendingkart.com
+</div>
+</div>
+
+
+<div class="api-key" id="normal">
+<div class="heading">
+<span>Swagger link</span>
+</div>
+<p class="text">Click on this <a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/" target="_blank" >link</a> for swagger page.</p>
+</div>
+</div>
+
+
+# Introduction
+
+
+
+Welcome to Lendingkart Partner API documentation. This documentation provides access to the end to end
+Lendingkart Partner API suite. Integrate our APIs quickly to enable Lendingkart loan journey in your platforms to
+provide a unique experience to your customers.
+
+
+
+
+
+
+
+
+
+
+Below is a high level representation of Lendingkart Loan journey. Our APIs help you to interact with different
+steps in the loan journey.
+
+<p class="image-p">
+<image src="./images/Artboard.jpg" alt="image1" />
+</p>
+
+<aside class="notice">
+Please refer to the this <a href="https://docs.google.com/spreadsheets/d/1_GxM3sZeuhTE-oKFN0HYKDz4LHMj-k5FD22b80CCf0I/edit?usp=sha
+ring" target="_blank" >link</a> for basic Lendingkart application sourcing guidelines(Negative Industries and
+Negative pin codes mentioned here). We recommend that you source leads based on these criteria to ensure
+lower rejection rates by filtering the leads upfront at your end.
+</aside>
+
+<%= partial "./PartnerApi/v1/apis/screeningApi.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/applicationCreationApi.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/docUploadApi.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/applicationStatus.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/documentStatusApi.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/termsSanctionApi.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/termsAcceptanceApi.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/downloadAgreementApi.html.md.erb" %>
+
+<%= partial "./PartnerApi/v1/apis/getDirsbursalApi.html.md.erb" %>
+
+

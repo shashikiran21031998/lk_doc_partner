@@ -1,0 +1,33 @@
+# Webhooks
+
+Lendingkart uses webhooks to notify partners about any updates for their applications. Once you have registered for a webhook, you will be directly notified of any change, instead of having to make API calls repeatedly.
+Currently, we are using webhooks to notify about status updates of an application. On receiving this notification, you can then call the Application Status API to check the current status of that application.
+
+We will deliver this notification via an HTTP POST request with JSON body, to the API endpoint given by the partner. This endpoint can have the following methods authentication methods:
+
+ - No Auth (not recommended)
+ - Basic Auth
+ - Custom Header
+ - OAuth
+
+### Headers
+
+content-type: application/json
+
+>Payload example:
+
+```json
+{
+   "applicationId": "LAI-123130248",
+   "type": "STATUS_UPDATE"
+}
+```
+
+### Parameters
+
+| Field | Description | Required |Data type| Example values|
+|-------|-------------|----------|---------|---------------|
+|applicationId|applicationId for which the event has occurred|true|String|LAI-1234|
+|type|type of event that has occurred. Possible value "STATUS_UPDATE"|true|String|"STATUS_UPDATE"|
+
+**To register you API endpoint for webhooks, reach out to us at <a href="mailto:help.partnerDB@lendingkart.com"​>help.partnerdb@lendingkart.com</a>**

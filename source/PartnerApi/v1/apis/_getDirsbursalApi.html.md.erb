@@ -1,0 +1,209 @@
+## Get disbursal data
+    
+```shell
+curl -X GET --header 'Accept: application/json' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd' 
+'https://lkext.lendingkart.com/v2/partner/leads/disbursal-data/LAI-110081529'
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/disbursal-data/LAI-110081529")
+  .method("GET", null)
+  .addHeader("Accept", "application/json")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/disbursal-data/LAI-110081529"
+payload={}
+headers = {
+'Accept': 'application/json',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("GET", url, headers=headers, data=payload)
+print(response.text)
+```
+
+>Output Response (Response code:200)
+
+
+```json
+{
+"annualizedInterestRate": 41.7,
+"calculationMethod": "Declining Balance",
+"crossSellTypeMap": {
+"IHO": {
+"amount": 0,
+"amountWithGst": 2000,
+"applicable": true,
+"crossSellType": "IHO",
+"displayValue": "Health & Wellness",
+"gst": 1694.91
+}
+},
+"disbursalDate": "2020-07-21T00:00:00.000Z",
+"documentationCharges": 6726,
+"emiDetails": "emiDetails": {
+"emiAmount": 113418,
+"totalEmis": 5,"emisRemaining": 3,
+"nextDueDate": null,
+"emiEndDate": "2018-12-31T18:30:00.000Z"
+}
+,
+"gst": 1486626.2711864407,
+"installmentAmount": 88306,
+"insuranceCharges": 14732,
+"interestRate": 16.2,
+"interestType": "Fixed",
+"loanAmount": 1200000,
+"loanBankAccountDetails": {
+"accountHolderName": "S.S.D. MOBILE WORLD",
+"accountNumber": "",
+"accountType": "",
+"bankName": "",
+"branchName": ""
+},
+"loanDisbursalAmount": 1754219,
+"loanId": "LNH.O00120-210000678",
+"period": "MONTHLY",
+"prePaidFeePercentage": 2.5,
+"tenure": 24
+}
+```
+
+>Output Response (Response code:404)
+
+
+```json
+{
+"errorCode": 104,
+"message": "Loan not found for given applicationId :LAI-1099994512"
+}
+```
+>Output Response (Response code:400)
+
+
+```json
+{
+"errorCode": 100,
+"message": "Invalid application Id LAI-109953345"
+}
+```
+
+
+This API provides the details related to disbursal of a loan. Please trigger this API only when the ‘Application
+Status’ returned by Status API is ‘Disbursed’.
+
+### HTTP Request
+`GET https://lkext.lendingkart.com/admin/lead/v2/partner/leads/disbursal-data/{applicationId}`
+
+###Query Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|applicationId|Customer’s application id|String|true|
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+### Response Fields
+|Disbursal Details <br> Components|Field|Description|Data type|Sample Values|
+|---------------|-----|-----------|---------|-------------|
+|Loan ID|loanAmount|loanId|String|LAI-XXX|
+|Sanctioned Amount|loanAmount|Loan amount sanctioned|number|1035000|
+|Insurance Charges<br>(Without GST)|insuranceCharges|Charges deducted for insurance|number|28235|
+|Documentation Charges<br>(Without GST)|documentationCharges|Charges deduced for documentation|number|5700|
+|Processing Fees<br>(Without GST)|PrepaidFeepercentage|Processing fee charges.This is returned as % |number|2.5|
+|Health and Wellness charges|crossSellTypeMap.IHO|Object containing details of charges for health and wellness(IHO). In case, IHO is not applicable for this terms offer, then this key ‘IHO’ will not be present in the field ‘crossSellTypeMap’.|number|2000|
+|Health and Wellness charges <br>(Without GST)|crossSellTypeMap.IHO.amount|IHO coupon price|number|1694.92|
+|GST component of Health & Wellness|crossSellTypeMap.IHO.gst|GST rate for above IHO coupon price|number|305.08|
+|Health and Wellness charges <br>(With GST)|crossSellTypeMap.IHO.amountWithGst|IHO coupon price <br>(with GST).|number|2000|
+|GST|gst|GST to be added to all components in % |number|18|
+|Disbursal Amount|disbursalAmount|Final disbursal Amount to customer|number|962423|
+|Terms Version|mailNumber|Version number for Offer|String|m0|
+|EMI|instalmentAmount|EMI on offer|number|49450|
+|Interest Rate|interestRate|Loan Interest Rate in % |number|2|
+|Tenure|tenure|Loan Tenure|number|36|
+|Annualized Interest Rate|annualizedInterestRate|Annualized Interest Rate|number|39.43|
+|Date of Generation|dateOfGeneration|Terms Generation date|String|"2018-04-05T08:15:08.000+0000"|
+|Period|period|Frequency|String|monthly|
+|Calculation Method|calculationMethod|Declining/Reducing|String|Flat|
+|emiDetails|emiAmount|Emi Amount to be paid|number|49450|
+|Total Emis|totalEmis|Total number of EMIs|number|36|
+|Remaining emis|emis| number of EMIs remaining |number|36|
+|Next Due Date|nextDueDate|Next EMI Due Date|String|2018-12-18|
+|Emi End Date|emiEndDate|Last EMI Due Date|String|2021-12-18|
+
+<p class="image-p">
+<image src="./images/getDisbursalApi.png" alt="image1" />
+</p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>	
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>	
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>	
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>	
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>	
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getDisbursalDataUsingGET" id="tryIt" target="_blank">Try it!</a>

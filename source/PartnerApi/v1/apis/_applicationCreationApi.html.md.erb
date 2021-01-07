@@ -1,0 +1,369 @@
+## Application creation
+
+```shell
+curl -X POST --header 'Content-Type: application/json' 
+--header 'Accept: text/plain' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd' 
+-d 
+'{
+  "firstName": "Bala",
+  "lastName": "Ganesh",
+  "email": "Bala.Ganeshtest1@example.com",
+  "mobile": "6666698762",
+  "businessRevenue": 5000000,
+  "businessAge": 24,
+  "registeredAs": "Proprietorship",
+  "personalDob": "1990-05-21",
+  "personalPAN": "ARTPA1156H",
+  "gender": "MALE",
+  "cibilConsentForLK": true,
+  "mobileNoVerified": true,
+  "personalAddress": {
+    "ownership": "string",
+    "address": "4/5, Race Course Road",
+    "city": "Coimbatore",
+    "state": "TamilNadu",
+    "pincode": "641041"
+  },
+  "businessRunBy": "Self",
+  "loanAmount": 100000,
+  "typeOfLoan": "INSTANT",
+  "companyName": "Sakthi Enterprises",
+  "businessAddress": {
+    "ownership": "string",
+    "address": "4/5, Race Course Road",
+    "city": "Coimbatore",
+    "state": "TamilNadu",
+    "pincode": "641041"
+  },
+  "loanNeedTime": "After 2 weeks",
+  "uniqueId": "string",
+  "otherFields": {}
+}'
+'https://lkext.lendingkart.com/v2/partner/leads/create-application'
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{{
+  "firstName": "Bala",
+  "lastName": "Ganesh",
+  "email": "Bala.Ganeshtest1@example.com",
+  "mobile": "6666698762",
+  "businessRevenue": 5000000,
+  "businessAge": 24,
+  "registeredAs": "Proprietorship",
+  "personalDob": "1990-05-21",
+  "personalPAN": "ARTPA1156H",
+  "gender": "MALE",
+  "cibilConsentForLK": true,
+  "mobileNoVerified": true,
+  "personalAddress": {
+    "ownership": "string",
+    "address": "4/5, Race Course Road",
+    "city": "Coimbatore",
+    "state": "TamilNadu",
+    "pincode": "641041"
+  },
+  "businessRunBy": "Self",
+  "loanAmount": 100000,
+  "typeOfLoan": "INSTANT",
+  "companyName": "Sakthi Enterprises",
+  "businessAddress": {
+    "ownership": "string",
+    "address": "4/5, Race Course Road",
+    "city": "Coimbatore",
+    "state": "TamilNadu",
+    "pincode": "641041"
+  },
+  "loanNeedTime": "After 2 weeks",
+  "uniqueId": "string",
+  "otherFields": {}
+}}");
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/create-application")
+  .method("POST", body)
+  .addHeader("Content-Type", "application/json")
+  .addHeader("Accept", "text/plain")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/create-application"
+payload="{
+  "firstName": "Bala",
+  "lastName": "Ganesh",
+  "email": "Bala.Ganeshtest1@example.com",
+  "mobile": "6666698762",
+  "businessRevenue": 5000000,
+  "businessAge": 24,
+  "registeredAs": "Proprietorship",
+  "personalDob": "1990-05-21",
+  "personalPAN": "ARTPA1156H",
+  "gender": "MALE",
+  "cibilConsentForLK": true,
+  "mobileNoVerified": true,
+  "personalAddress": {
+    "ownership": "string",
+    "address": "4/5, Race Course Road",
+    "city": "Coimbatore",
+    "state": "TamilNadu",
+    "pincode": "641041"
+  },
+  "businessRunBy": "Self",
+  "loanAmount": 100000,
+  "typeOfLoan": "INSTANT",
+  "companyName": "Sakthi Enterprises",
+  "businessAddress": {
+    "ownership": "string",
+    "address": "4/5, Race Course Road",
+    "city": "Coimbatore",
+    "state": "TamilNadu",
+    "pincode": "641041"
+  },
+  "loanNeedTime": "After 2 weeks",
+  "uniqueId": "string",
+  "otherFields": {}
+}"
+headers = {
+'Content-Type': 'application/json',
+'Accept': 'text/plain',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+print(response.text)
+```
+>Output Response (Response Code:200)
+
+
+```json
+1. {
+    "leadId": "32433",
+    "applicationId": "LAI-109966675",
+    "message": "ELIGIBLE",
+   “uniqueid”: “34567654”,
+   }
+2. {
+    "leadId": "32431",
+    "applicationId": "LAI-109966674",
+    "message": "INELIGIBLE",
+   “uniqueid”: “34567654”,
+   }
+3. {
+    "leadId": "32432",
+    "applicationId": null,
+    "message": "Application or lead already exist with us",
+   “uniqueid”: “34567654”,
+   }
+4. {
+    "leadId": "103600",
+    "applicationId": null,
+    "message": null,
+    "errorMessageList": [
+    "Unable to create application for this leadId "
+    ]
+   “uniqueid”: “34567654”,
+   }
+```
+
+The API creates an application in the Lendingkart system on success. API requires fields highlighted in ​ Red
+mandatorily for application creation. The rest of the application fields are required for application completion to
+move further in our loan journey - Please share the maximum available customer data available at your end
+overlapping with our input fields to fast track loan application process without any manual intervention with
+customers. If you don't have any of the non mandatory fields - it is ok to not pass them in the request string or
+just pass as null (null as value not “null” as string). Please refer to this [link](https://docs.google.com/spreadsheets/d/1Mi-bGUVks1cj9ZyEPSPQ3UgNVcVGcUFD09LAN5mCvlM/edit?usp=s
+haring) for understanding the list of
+fields we require for application completion.
+
+**Upfront Rejection Criterion**</br>
+1. **Business Age** - We have a minimum cap for ​ **vintage / age of business​** AS ​ **3 months**​ . Requests having this
+field’s value less than or equal to 3 Months would be rejected (lead ID and application ID both will be created)</br>
+2. **Business Revenue** - We have a minimum cap for ​ **revenue / Last 12 months sales​** AS ​ **3 lakhs​** . Requests
+having this field’s value less than equal to 3 lakhs would be rejected (lead ID and application ID both will be
+created)</br>
+3. **Duplicacy** - If lead sent in the request is a duplicate of an already existing lead in the system then it checks if
+the old lead is still active. If this is the case then the lead which is sent in the request is rejected (new lead would
+be created, application won't be created). We recommend that you use our Lead Dedupe API first before
+triggering Application Creation API to avoid lead rejections.
+
+
+### HTTP Request
+`POST https://lkext.lendingkart.com/v2/partner/leads/create-application`
+
+### Parameter
+
+|Parameter|Description|Data Type|Required|Regex|
+|---------|-----------|------------|--------|-----|
+|firstName|Customer’s first name|String|true|^[\\p{L} .'-]+$ |
+|lastName|Customer’s lastName name|String|true|^[\\p{L} .'-]+$|
+|mobile|Customer’s mobile number|String|true|^[6-9]{1}[0-9]{9}$|
+|email|Customer’s email address|String|true|^[_A-Za-z0-9-​ \\​ +]+(​ \\​ .[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(​ \\​ .[A-Za-z0-9]+)*(​ \\​ .[A-Za-z]{2,})$|
+|companyEmail|Customer’s company email address|String|true|^[_A-Za-z0-9-​ \\​ +]+(​ \\​ .[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(​ \\​ .[A-Za-z0-9]+)*(​ \\​ .[A-Za-z]{2,})$|
+|companyGstNumber|Customer’s company GST number(accepts null value)|String|false|^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[A-Z0-9]{1}[A-Z]{1}[A-Z0-9]{1}$|
+|companyPAN|Customer’s companys pan(accepts null value)|String|false|[A-Z]{3}[C,H,A,B,G,J,L,E,F,T]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}|
+|personalPAN|Customer’s personal pan(accepts null value)|String|false|[A-Z]{3}[P]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}|
+|personalAadhaar|Customer’s aadhar number(accepts null value)|String|false|[0-9]{12}|
+|personalDob|Customer’s date of birth(accepts null value)|String|false|YYYY-MM-DD|
+|companyServiceTaxNumber|Customer’s companys tax number(accepts null value)|String|false|^[A-Z]{5}[0-9]{4}[A-Z]{1}[S]{1}[D|T]{1}[0-9]{3}$|
+
+###Other Parameter (enum values)
+<details>
+<summary>
+<strong>1. registeredAs</strong><i>(required)</i>
+</summary>
+<ul>
+<li>Proprietorship</l1>
+<li>Partnership</li>
+<li>Pvt. Ltd</l1>
+<li>LLP</li>
+<li>Limited Company</l1>
+<li>One Person Company</li>
+<li>Not Registered</li>
+</ul>
+</details>
+
+<details>
+<summary>
+<strong>2. businessRunBy</strong><i>(required)</i>
+</summary>
+<ul>
+<li>Self</l1>
+<li>Spouse</li>
+<li>Relative</l1>
+<li>Parent</li>
+<li>Others</l1>
+</ul>
+</details>
+
+<details>
+<summary>
+<strong>2. productCategory</strong><i>(required)</i>
+</summary>
+<ul>
+<li>"Advisory services (legal, business, educational, psychological etc.)"</li>
+<li>"Aircel distributor / R-com distributor"</li>
+<li>"Apparel, Readymade garments"</li>
+<li>"Arms and ammunition dealers"</li>
+<li>"Arts, design and other creative services"</li>
+<li>"Automobile accessories / service centre"</li>
+<li>"Automotive parts"</li>
+<li>"BPO/KPO & facility management"</li>
+<li>"Bar / Liquor"</li>
+<li>"CSC, photocopying and other documents and ID (Aadhar, PAN) related services, Kisan seva kendra"</li>
+<li> "Cab Services"</li>
+<li> "Camera, CCTV and related accessories"</li>
+<li> "Cargo and retail transport service"</li>
+<li> "Chain restaurant / verified income"</li>
+<li> "Chemist, Retail health accessories, medicines and supplements"</li>
+<li> "Clinics, hospital,nursing home, lab, gym, pet clinic etc."</li>
+<li> "Computer, Mobile and related accessories"</li>
+<li> "Computer, mobile and camera repairing service"</li>
+<li> "Construction equipment including building, road, sewage etc."</li>
+<li> "Construction material like cement, bricks, sand etc"</li>
+<li> "Corporate services / Corporate bookings"</li>
+<li> "Cotton bales, Textile manufacturing"</li>
+<li> "Countdown Timers, Electronic Scoreboards and Digital Clocks"</li>
+<li> "Courier"</li>
+<li> "Design, Fabrication & Painting Services"</li>
+<li> "Distributor of cooking/commercial Gas"</li>
+<li> "Eco-friendly solutions for industry (solar, greenhouse, biomass, recycling, etc.)"</li>
+<li> "Edible Oil business"</li>
+<li> "Educational Institute (Pre-school, school, college, coaching center, library etc.)"</li>
+<li> "Educational products (books, educational toys, stationeries, e-learning etc.)"</li>
+<li> "Electronic sensors, devices"</li>
+<li> "Entertainment Event"</li>
+<li> "Equipment used in agriculture"</li>
+<li> "Event Management"</li>
+<li> "Fabric (woven and non-woven) & textiles"</li>
+<li> "Facility Management Services"</li>
+<li> "Fibres, threads, buttons and other raw materials supplier to textile industry"</li>
+<li> "Film Producer"</li>
+<li> "Financial service providers (Chit funds/ small finance companies/Stock broking Companies)"</li>
+<li> "Financial service providers (DSA,agents and other intermediators)"</li>
+<li> "Financial service providers (NBFCs/ Other money lending companies)"</li>
+<li> "Fire fighting equipment, safety materials"</li>
+<li> "Footwear, bags, cosmetics and other fashion accessories"</li>
+<li> "Freight forwarding services"</li>
+<li> "Furniture & Fixtures (including on rent)"</li>
+<li> "Grocery/ Kirana store / Departmental Store"</li>
+<li> "Hardware & Fittings (ceramics, tiles, cables, lights etc.)"</li>
+<li> "Hardware provider to telecom industry"</li>
+<li> "Heavy machineries & Robotics"</li>
+<li> "Home & Kitchen Appliances"</li>
+<li> "Home Decor, interior items, kitchen accessories, toys, gift articles"</li>
+<li> "Hotels, resorts and club"</li>
+<li> "Housekeeping products"</li>
+<li> "Housekeeping, security & industrial labour supply"</li>
+<li> "Imitation jewellery"</li>
+<li> "Industrial and customized software, applications and ITES"</li>
+<li> "Installation and repair services for telecom products"</li>
+<li> "Intelligence Agencies/ Private Security Firms"</li>
+<li> "Interior Designers"</li>
+<li> "Jewellery, precious metals and stones"</li>
+<li> "Material handling service provider"</li>
+<li> "Medical, non-medical & wellness equipments"</li>
+<li> "Mining & Mining Products"</li>
+<li> "Mobile and related accessories"</li>
+<li> "Mobile recharge, Telecom, DTH, data service provider (telephone, internet,broadband, ISP, leased line etc.)"</li>
+<li> "Musical Instruments, bulbs, tubelights"</li>
+<li> "Networking, storage, data management and other support services"</li>
+<li> "Non-metal products like wood, paper, plastic, glass, etc"</li>
+<li> "Oils, Paint, Chemicals and petroleum products"</li>
+<li> "Other metals, alloys, minerals and their scraps"</li>
+<li> "Others"</li>
+<li> "Outdoor furniture (swings etc.)"</li>
+<li> "Outsourced consultancy (recruitment, research, placement, transcription, visa etc.)"</li>
+<li> "Pet Shop, Pet Clinic & Pet Grooming Parlour"</li>
+<li> "Petrol pump & Gas station"</li>
+<li> "Power"</li>
+<li> "Professional services (branding, media, architecture, saloon, beauty parlour etc.)"</li>
+<li> "Property dealing & management (Rent, lease or Sell)"</li>
+<li> "Raw materials and parts used for manufacturing"</li>
+<li> "Real estate developer, Civil contractor"</li>
+<li> "Renewal (other than Via)"</li>
+<li> "Repair and maintenance services"</li>
+<li> "Repair and servicing of household appliances"</li>
+<li> "Restaurants, Cafes, food outlets & catering"</li>
+<li> "Retail and standard softwares, applications and ITES"</li>
+<li> "Seeds, Fertilizer, Pesticides, Cattle feeds and agricultural products"</li>
+<li> "Shares/Bitcoins/Old coins trading or Other speculative activities"</li>
+<li> "Shipping Services"</li>
+<li> "Supplier for switches,cables etc"</li>
+<li> "Support services (facilitators, intermediators, agents, etc.)"</li>
+<li> "Support services to industries like industrial design, warehousing, testing, repairing etc."</li>
+<li> "Tax planners / Auditors"</li>
+<li> "Tea / coffee vending machine & Tea / Coffee powder to Government / corporates"</li>
+<li> "Ticket, Travel & Tour Packages"</li>
+<li> "Tobacco Products"</li>
+<li> "Tools and equipments including electricals,transformers, inverters and batteries"</li>
+<li> "Vegetables, Fruits, Milk and other dairy products, Spices, Sea-food and food-processing"</li>
+<li> "Vehicles (New/second hand)"</li>
+<li> "Via cases"</li>
+
+</ul>
+</details>
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+<aside class="warning">
+<strong>On Failure</strong> <br>
+Bad Request: 400 <br>
+Unauthorized: 401
+</aside>
+
+<aside class="notice">
+While the above sample request works really well for Business type - ‘Proprietorship’ and ‘Not Registered’
+Business types, we recommend that you refer to the link below for other business types such as ‘Partnerships’,
+‘Pvt ltd’, ‘LLP’ and ‘One person company’ to send us additional fields for additional directors and application.
+This 
+<a href="https://docs.google.com/spreadsheets/d/1G_ueFGeNEI17OOnAzahhZbaUdJVTOJjI07KYY-PhnPE/edit?usp=sharing">link</a>
+ also contains additional information data inputs that may help in better decisioning of the
+application.
+</aside>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/leadApplicationCreationUsingPOST" id="tryIt" target="_blank">Try it!</a>

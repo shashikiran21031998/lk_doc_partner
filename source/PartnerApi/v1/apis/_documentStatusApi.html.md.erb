@@ -1,0 +1,234 @@
+## Document Status
+    
+```shell
+curl -X GET --header 'Accept: application/json' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd' 
+'https://lkext.lendingkart.com/v2/partner/leads/document-status
+?applicationId=LAI-110081529&context=PRE_TERMS'
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/document-status
+  ?applicationId=LAI-110081529&context=PRE_TERMS")
+  .method("GET", null)
+  .addHeader("Accept", "application/json")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/document-status
+?applicationId=LAI-110081529&context=PRE_TERMS"
+payload={}
+headers = {
+'Accept': 'application/json',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("GET", url, headers=headers, data=payload)
+print(response.text)
+```
+>Output Response (Response code:200)
+
+
+```json
+[
+{
+"documentType": "Bank Statement",
+"latestVerificationStatus": "PENDING",
+"documents": [
+{
+"documentTag": "BankStatement-Director/Properiotor/Partner",
+"latestVerificationDate": "2020-09-10T06:46:48.000+0000",
+"pendencyDetails": [
+{
+"verificationStatus": "PENDING",
+"autoGenText": "Savings account statement of Axis Bank from 03-02-2015 to 03-02-2016 in original PDF format only",
+"verificationDate": "2020-09-10T06:46:47.945+0000",
+"uuid": "2b31b6b7-ed2d-406a-86ee-620a427d4123"
+}
+]
+}
+]
+},
+{
+"documentType": "Registration Proof",
+"latestVerificationStatus": "APPROVED",
+"documents": [
+{
+"documentTag": "AuditedFinancials-RegProof","latestVerificationDate": "2020-09-10T06:36:22.000+0000",
+"pendencyDetails": [
+{
+"verificationStatus": "APPROVED",
+"autoGenText": "Copy of valid Audited Financials",
+"verificationDate": "2020-09-10T06:36:21.655+0000",
+"uuid": "c7d51229-a0b2-4f1f-b372-728026ddf604"
+}
+]
+},
+{
+"documentTag": "DrugLicFdDrugControlCert-RegProof"
+},
+{
+"documentTag": "FSSAICertificate-RegProof"
+},
+{
+"documentTag": "GSTCertification-RegProof"
+},
+{
+"documentTag": "GumastaCertificate-RegProof"
+},
+{
+"documentTag": "IECLicense-RegProof"
+},
+{
+"documentTag": "LabourDept-RegProof"
+},
+{
+"documentTag": "Others-RegProof"
+},
+{
+"documentTag": "RCunderMunicipality-RegProof"
+},
+{
+"documentTag": "ShopEstablishmentAct-RegProof"
+},
+{
+"documentTag": "TaxCertificateNonGST-RegProof"
+},
+{
+"documentTag": "UdyogAadhaar-RegProof"
+}
+]
+},
+{
+"documentType": "Proprietor PAN",
+"latestVerificationStatus": "PENDING",
+"documents": [
+{
+"documentTag": "PanCard-Personal",
+"latestVerificationDate": "2020-09-10T06:35:51.000+0000",
+"pendencyDetails": [
+{
+"verificationStatus": "PENDING",
+"autoGenText": "PAN of Rahul Kumar",
+"verificationDate": "2020-09-10T06:35:51.441+0000",
+"uuid": "06a940cb-b034-4642-8ffe-1be01966040a"
+}
+]
+}
+]
+}
+]
+```
+
+This API provides document status and any document pendencies raised for an application. Please refer to
+document types enums in this [sheet](https://docs.google.com/spreadsheets/d/1G81sMKBhwcKHUpWJCmolfdS5ElEGYgTpDoPBgf3w-Z4/edit?usp=s
+haring) below.
+
+###How to use this API
+Based on the stage an application is in, use this API with **‘PRE_TERMS’ or ‘POST_TERMS’ or ‘ALL’** to fetch the
+updated pendencies on documents required to complete the respective stage. ‘PRE_TERMS’ refers to the stage
+prior to Loan offer and returns document status details only of those documents that are required for decision.
+‘POST_TERMS’ refers to the stage post Offer Acceptance related to KYC. ‘ALL’ returns the document status of
+all the relevant documents required for the application.
+
+### HTTP Request
+`GET https://lkext.lendingkart.com/admin/lead/​v2/partner/leads/document-status/{applicationId}/{context}`
+
+###Query Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|applicationId|Customer’s application id|String|true|
+|context:|Customer’s application context (either PRE_TERMS,POST_TERMS,ALL)|String|true|
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+### Response Fields
+|Field|Description|Example values|
+|-----|-----------|---------|
+|documentType|Type of document|"Bank Statement"|
+|latestVerificationStatus|Final status of the document type|"PENDING" or "SUBMITTED" or "APPROVED"|
+|documents|list of all type of documents that can be uploaded for the given doc type|[<br> {<br>"documentTag": "BankStatement-Director/Properiotor/Partner",<br> "latestVerificationDate": "2020-09-10T06:46:48.000+0000",<br>   "pendencyDetails": [<br>   {<br>   "verificationStatus": "PENDING",<br>   "autoGenText": "Savings account statement of Axis Bank from 03-02-2015 to 03-02-2016 in original PDF format only",<br>   "verificationDate": "2020-09-10T06:46:47.945+0000",<br>   "uuid": "2b31b6b7-ed2d-406a-86ee-620a427d4123"<br>   }<br>   ]<br>   }<br>   ]|
+|documentTag|document type enum used in document upload api|"PanCard-Personal"|
+|latestVerificationDate|latest verification date of that document tag|"2020-09-10T06:35:51.000+0000",|
+|pendencyDetails|List of all the pendencies generated|"Bank Statement"|
+|verificationStatus:|status of a pendency Values|"PENDING" or "SUBMITTED" or "APPROVED"|
+|autoGenText|text that states the requirement|"PAN of Rahul Kumar"|
+|verificationDate|Date of last verification of the pendency|"2020-09-10T06:35:51.000+0000"|
+|uuid|unique identifier of the pendency|"06a940cb-b034-4642-8ffe-1be01966040a"|
+
+
+<p class="image-p">
+<image src="./images/documentStatusApi.png" alt="image1" />
+</p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>	
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>	
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>	
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>	
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>	
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getDocumentPendenciesUsingGET" id="tryIt" target="_blank">Try it!</a>

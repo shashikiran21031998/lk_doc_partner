@@ -1,0 +1,144 @@
+## Download agreement
+    
+```shell
+curl -X GET --header 'Accept: */*' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd' 
+'https://lkext.lendingkart.com/v2/partner/leads/agreement
+/LAI-110081529/download'
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/agreement
+  /LAI-110081529/download")
+  .method("GET", null)
+  .addHeader("Accept", "*/*")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/agreement
+/LAI-110081529/download"
+payload={}
+headers = {
+'Accept': '*/*',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("GET", url, headers=headers, data=payload)
+print(response.text)
+```
+
+>Output Response (Response code:200)
+
+
+```json
+  no content
+```
+>Output Response (Response code:404)
+
+
+```json
+{
+"errorCode": 104,
+"message": "Loan not found for given applicationId :LAI-1099994512"
+}
+```
+>Output Response (Response code:503)
+
+
+```json
+{
+"errorCode": 103,
+"message": "Unable to read/write the file"
+}
+```
+
+This API will view/download the agreement generated for an application. Please call this API only when
+Application status changes to Agreement Stage.
+
+### HTTP Request
+`GET ​ https://lkext.lendingkart.com/admin/lead/v2/partner/leads/​ agreement/{applicationId}/{receiveType}`
+
+###Query Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|applicationId|Customer’s application id|String|true|
+|receiveType|can take the values “view” or “download” (​ view will view the pdf on browser and download will download the pdf)|String|true|
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+
+<p class="image-p">
+<image src="./images/downloadAgreementApi.png" alt="image1" />
+</p>
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>	
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>	
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>	
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>	
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>	
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/partnerAgreementDownloadUsingGET" id="tryIt" target="_blank">Try it!</a>

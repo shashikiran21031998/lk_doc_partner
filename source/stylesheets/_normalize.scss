@@ -1,5 +1,7 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
+@import "variables";
+
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -7,7 +9,7 @@
  */
 
 html {
-    font-family: sans-serif; /* 1 */
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -88,6 +90,8 @@ template {
 
 a {
     background-color: transparent;
+    color: #FF7000;
+    text-decoration: underline;
 }
 
 /**
@@ -133,7 +137,6 @@ dfn {
  */
 
 h1 {
-    font-size: 2em;
     margin: 0.67em 0;
 }
 
@@ -232,6 +235,24 @@ pre,
 samp {
     font-family: monospace, monospace;
     font-size: 1em;
+}
+.top-header {
+position: fixed;
+top: 0;
+width: 100%;
+margin: 24px -26px;
+
+}
+.header-links{
+    float: right;
+    color: #FF7000;
+    margin-right: 19px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+
+    
+
 }
 
 /* Forms
@@ -424,4 +445,12 @@ table {
 td,
 th {
     padding: 0;
+}
+
+.image-logo {
+  width: 154px;
+  margin: 29px auto;
+  margin-bottom: 36px;
+  margin-left: 32px;
+
 }

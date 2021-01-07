@@ -1,0 +1,167 @@
+## Terms Sanction
+    
+```shell
+curl -X GET --header 'Accept: application/json' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd' 
+'https://lkext.lendingkart.com/v2/partner/leads/termsAndConditions
+/LAI-110081529'
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/termsAndConditions
+  /LAI-110081529")
+  .method("GET", null)
+  .addHeader("Accept", "application/json")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/termsAndConditions
+/LAI-110081529"
+payload={}
+headers = {
+'Accept': 'application/json',
+'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("GET", url, headers=headers, data=payload)
+print(response.text)
+```
+
+>Output Response (Response code:200)
+
+
+```json
+{
+"calculationMethod": "Declining Balance",
+"disbursalAmount": 144559,
+"documentationCharges": 0,
+"installmentAmount": 1145,
+"insuranceCharges": 0,
+"interestRate": 10,
+"loanAmount": 146343,
+"mailNumber": "M0",
+"period": "MONTHLY",
+"prePaidFeePercentage": 0,
+"gst": 18,
+"tenure": 6,
+"annualizedInterestRate": 0,
+"status": null,
+"dateOfGeneration": "2018-04-05T08:15:08.000+0000",
+"crossSellTypeMap": {
+"IHO": {
+"displayValue": "Health & Wellness",
+"amount": 1694.92,
+"gst": 305.08,
+"amountWithGst": 2000.0
+}
+}
+}
+```
+
+This API provides the latest offer for the application. Overall offer comprises different components. Disbursed
+Amount is a function of Sanctioned amount, Documentation charges, Insurance charges, Processing Fees and
+Cross sell charges. You dont have to re-calculate the values and directly consume the values in your platforms.
+
+### HTTP Request
+`GET https://lkext.lendingkart.com/admin/lead/​v2/partner/leads/termsAndConditions/{applicationId}`
+
+###Query Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|applicationId|Customer’s application id|String|true|
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+### Response Fields
+|Offer Component|Field|Description|Data type|Sample Values|
+|---------------|-----|-----------|---------|-------------|
+|Sanctioned Amount|loanAmount|Loan amount sanctioned|number|1035000|
+|Insurance Charges<br>(Without GST)|insuranceCharges|Charges deducted for insurance|number|28235|
+|Documentation Charges<br>(Without GST)|documentationCharges|Charges deduced for documentation|number|5700|
+|Processing Fees<br>(Without GST)|PrepaidFeepercentage|Processing fee charges.This is returned as % |number|2.5|
+|Health and Wellness charges|crossSellTypeMap.IHO|Object containing details of charges for health and wellness(IHO). In case, IHO is not applicable for this terms offer, then this key ‘IHO’ will not be present in the field ‘crossSellTypeMap’.|number|2000|
+|Health and Wellness charges <br>(Without GST)|crossSellTypeMap.IHO.amount|IHO coupon price|number|1694.92|
+|GST component of Health & Wellness|crossSellTypeMap.IHO.gst|GST rate for above IHO coupon price|number|305.08|
+|Health and Wellness charges <br>(With GST)|crossSellTypeMap.IHO.amountWithGst|IHO coupon price <br>(with GST).|number|2000|
+|GST|gst|GST to be added to all components in % |number|18|
+|Disbursal Amount|disbursalAmount|Final disbursal Amount to customer|number|962423|
+|Terms Version|mailNumber|Version number for Offer|String|m0|
+|EMI|instalmentAmount|EMI on offer|number|49450|
+|Interest Rate|interestRate|Loan Interest Rate in % |number|2|
+|Tenure|tenure|Loan Tenure|number|36|
+|Annualized Interest Rate|annualizedInterestRate|Annualized Interest Rate|number|39.43|
+|Date of Generation|dateOfGeneration|Terms Generation date|String|"2018-04-05T08:15:08.000+0000"|
+|Period|period|Frequency|String|monthly|
+|Calculation Method|calculationMethod|Declining/Reducing|String|Declining|
+
+<table class="differnt-table">
+<tr>
+<th>
+HTTP status Code
+</th>
+<th>
+Reason
+</th>
+<th>
+Response Model
+</th>
+</tr>
+<tr>
+<td>
+200
+</td>
+<td>
+ok
+</td>
+<td>
+<code>{}</code>
+</td>
+</tr>
+<tr>
+<td>400</td>
+<td>	
+Because of invalid or missing ApplicationId.</td>
+<td><code>{<br>
+  "errorCode": 100,<br>
+  "message": "application id not be empty"<br>
+}</code></td>
+</tr>
+<tr>
+<td>401</td>
+<td>	
+Unauthorized error.Because of incorrect "x-api-key" or you are trying to do some action which is not permitted for you. Some common error messages are "User not permitted", "Session data not found"</td>
+<td><code>{<br>
+  "type": 0,<br>
+  "error": "{\"0\": [\"User not permitted\"]}"<br>
+}</code></td>
+</tr>
+<tr>
+<td>403</td>
+<td>	
+Forbidden</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>	
+Loan not found for given applicationId</td>
+<td><code></code></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>	
+Internal server error</td>
+<td><code></code></td>
+</tr>
+</table>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/getTermsAndConditionsUsingGET" id="tryIt" target="_blank">Try it!</a>

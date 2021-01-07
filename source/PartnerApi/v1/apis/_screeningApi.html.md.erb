@@ -1,0 +1,91 @@
+## Lead Dedupe Status
+    
+```shell
+curl -X POST --header 'Content-Type: application/json' 
+--header 'Accept: application/json' 
+--header 'X-Api-Key: aaaa-bbbb-cccc-dddd'
+ -d 
+ '{ \ 
+   "mobile": "6666698762", \ 
+   "email": "Bala.Ganeshtest1%40example.com" \ 
+ }' 'https://lkext.lendingkart.com/v2/partner/leads/lead-exists-status'
+```
+
+```python
+import requests
+url = "https://lkext.lendingkart.com/v2/partner/leads/lead-exists-status"
+payload="{"mobile":"6666698762","email":"Bala.Ganeshtest1%40example.com"}"
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Api-Key': 'aaaa-bbbb-cccc-dddd'
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+print(response.text)
+```
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, 
+"{"mobile":"6666698762","email":"Bala.Ganeshtest1%40example.com"}";
+Request request = new Request.Builder()
+  .url("https://lkext.lendingkart.com/v2/partner/leads/lead-exists-status")
+  .method("POST", body)
+  .addHeader("Content-Type", "application/json")
+  .addHeader("Accept", "application/json")
+  .addHeader("X-Api-Key", "aaaa-bbbb-cccc-dddd")
+  .build();
+Response response = client.newCall(request).execute();
+```
+
+>Output Response (if lead exists)
+
+
+```json
+{
+  "applicationId": "String",
+  "leadExists": true
+}
+```
+
+>Output Response (if lead is unique)
+
+
+```json
+{
+  "applicationId": null,
+  "leadExists": false
+}
+```
+
+
+The API returns whether a lead pushed to Lendingkart would be accepted or rejected by lead dedupe logic
+based on two input parameters (email id and phone number). It checks whether the lead request sent is a
+duplicate of an already existing active lead in the system. If the API returns ‘False’, then please proceed with
+Application Creation API(Documentation below) to submit your application details to Lendingkart. In case the API
+returns ‘True’, then it indicates that Lendingkart will not be able to proceed further with these details at the
+moment as there is already an active lead in the system. The API returns Application ID in case the previous
+lead was pushed from your lead source only.
+
+
+### HTTP Request
+`POST https://lkext.lendingkart.com/admin/lead/v2/partner/leads/lead-exists-status`
+
+### Parameter
+
+|Parameter|Description|Data Type|Required|
+|---------|-----------|---------|--------|
+|email|Customer’s email address|String|true|
+|mobile|Customer’s mobile number|String|true|
+
+### Request Headers
+|Field|Description|Data Type|Required|
+|-----|-----------|---------|--------|
+|X-Api-Key|your api authorization key|String|true|
+
+<aside class="notice">
+There are some rare scenarios in which the Dedupe API will respond that the lead does not exist but then
+lead will be rejected by the Application Creation API.
+</aside>
+
+<a href="https://lkext.lendingkart.com/apidoc/home.html#!/Partner_Controller/checkLeadAlreadyExistingUsingPOST" id="tryIt" target="_blank">Try it!</a>
